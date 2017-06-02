@@ -12,6 +12,9 @@
         <property name="hibernate.connection.password">root</property>
 
         <mapping class="by.itacademy.entity.User"/>
+        <mapping class="by.itacademy.entity.Hero"/>
+        <mapping class="by.itacademy.entity.HeroRole"/>
+        <mapping class="by.itacademy.entity.Ability"/>
 
     </session-factory>
 </hibernate-configuration>

@@ -3,26 +3,31 @@ package by.itacademy.entity;
 import lombok.*;
 import javax.persistence.*;
 
-/**
- * Created by цифра on 22.05.2017.
- */
 @Entity
 @Table(name = "user")
 @NoArgsConstructor
 @EqualsAndHashCode
 @ToString
 public class User {
+
+    public User(String login, String password, String name, String secondName, String mail) {
+        this.login = login;
+        this.password = password;
+        this.name = name;
+        this.secondName = secondName;
+        this.mail = mail;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
     @Setter
     private long id;
 
-    @Column(name = "role")
-    @Enumerated(EnumType.STRING)
-    @Getter
-    @Setter
-    private RoleOfUsers role;
+//    @Column(name = "role")
+//    @Getter
+//    @Setter
+//    private RoleUser role;
 
     @Column(name = "login")
     @Getter

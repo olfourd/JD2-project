@@ -1,56 +1,44 @@
 package by.itacademy.entity;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by цифра on 22.05.2017.
- */
+@Entity
+@Table(name = "hero")
+@NoArgsConstructor
 public class Hero {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Getter
+    @Setter
     private long id;
+
+    @Getter
+    @Setter
+    @Column(name = "name")
     private String name;
+
+    @Getter
+    @Setter
+    @Column(name = "pass")
     private String passToPicture;
-    private List<Topic> topics;
 
-    public Hero() {
-    }
+    @Getter
+    @Setter
+    @Enumerated(EnumType.STRING)
+    private HeroRole role;
 
-    public Hero(long id, String name, String passToPicture, List<Topic> topics) {
-        this.id = id;
-        this.name = name;
-        this.passToPicture = passToPicture;
-        this.topics = topics;
-    }
 
-    public long getId() {
-        return id;
-    }
+    @Getter
+    @Setter
+    @OneToMany(mappedBy = "hero")
+    private List<Ability> abilities = new ArrayList<Ability>();
 
-    public void setId(long id) {
-        this.id = id;
-    }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getPassToPicture() {
-        return passToPicture;
-    }
-
-    public void setPassToPicture(String passToPicture) {
-        this.passToPicture = passToPicture;
-    }
-
-    public List<Topic> getTopics() {
-        return topics;
-    }
-
-    public void setTopics(List<Topic> topics) {
-        this.topics = topics;
-    }
 }
