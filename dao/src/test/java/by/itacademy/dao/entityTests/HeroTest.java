@@ -1,7 +1,7 @@
 package by.itacademy.dao.entityTests;
 
 import by.itacademy.entity.Hero;
-import by.itacademy.entity.HeroRole;
+import by.itacademy.entity.HeroRoleEnum;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -28,7 +28,7 @@ public class HeroTest {
         Hero hero = new Hero();
 
         hero.setName("Shai");
-        hero.setRole(HeroRole.SHOOTER);
+        hero.setRole(HeroRoleEnum.SHOOTER);
         Long id = (Long) session.save(hero);
         Hero savedHero = session.find(Hero.class, id);
         assertEquals(hero, savedHero);

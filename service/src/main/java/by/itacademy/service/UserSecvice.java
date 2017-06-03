@@ -1,10 +1,7 @@
 package by.itacademy.service;
 
-import by.itacademy.dao.UserDao;
 import by.itacademy.dto.UserDto;
 import by.itacademy.entity.User;
-
-import javax.jws.soap.SOAPBinding;
 
 public class UserSecvice {
     public UserDto getUser(long id){

@@ -6,12 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "ability")
-public class Ability {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter
-    @Setter
-    private long id;
+public class HeroAbility extends BaseEntity{
 
     @Getter
     @Setter
@@ -26,7 +21,7 @@ public class Ability {
     @Getter
     @Setter
     @ManyToOne
-    @JoinColumn(name = "hero", nullable = false)
+    @JoinColumn(name = "HERO_ID", nullable = false)
     private Hero hero;
 
     @Getter

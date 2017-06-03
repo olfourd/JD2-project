@@ -1,6 +1,6 @@
 package by.itacademy.dao.entityTests;
 
-import by.itacademy.entity.Ability;
+import by.itacademy.entity.HeroAbility;
 import by.itacademy.entity.Hero;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -12,7 +12,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class AbilityTest {
+public class HeroAbilityTest {
     private static SessionFactory SESSION_FACTORY;
 
     @BeforeClass
@@ -26,12 +26,12 @@ public class AbilityTest {
         Transaction transaction = session.beginTransaction();
 
         Hero hero = session.find(Hero.class, 135L);
-        Ability ability = new Ability();
+        HeroAbility ability = new HeroAbility();
         ability.setName("Hello");
         ability.setKeyAbility("passive");
         ability.setHero(hero);
         Long id = (Long) session.save(ability);
-        assertEquals(ability, session.find(Ability.class, id));
+        assertEquals(ability, session.find(HeroAbility.class, id));
 
         transaction.commit();
         session.close();

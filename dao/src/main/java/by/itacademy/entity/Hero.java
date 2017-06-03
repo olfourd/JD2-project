@@ -11,13 +11,7 @@ import java.util.List;
 @Entity
 @Table(name = "hero")
 @NoArgsConstructor
-public class Hero {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Getter
-    @Setter
-    private long id;
+public class Hero extends BaseEntity{
 
     @Getter
     @Setter
@@ -32,13 +26,12 @@ public class Hero {
     @Getter
     @Setter
     @Enumerated(EnumType.STRING)
-    private HeroRole role;
-
+    private HeroRoleEnum role;
 
     @Getter
     @Setter
     @OneToMany(mappedBy = "hero")
-    private List<Ability> abilities = new ArrayList<Ability>();
+    private List<HeroAbility> abilities = new ArrayList<>();
 
 
 }
