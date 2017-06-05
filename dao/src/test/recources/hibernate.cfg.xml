@@ -26,6 +26,7 @@
         <mapping class="by.itacademy.entity.HeroAbility"/>
         <mapping class="by.itacademy.entity.Topic"/>
         <mapping class="by.itacademy.entity.Message"/>
-
+        <mapping class="by.itacademy.entity.HeroTopic"/>
+        <mapping class="by.itacademy.entity.HeroTopicMessage"/>
     </session-factory>
 </hibernate-configuration>

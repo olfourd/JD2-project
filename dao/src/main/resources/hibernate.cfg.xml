@@ -13,10 +13,10 @@
 
         <mapping class="by.itacademy.entity.User"/>
         <mapping class="by.itacademy.entity.Hero"/>
-        <mapping class="by.itacademy.entity.HeroRole"/>
         <mapping class="by.itacademy.entity.HeroAbility"/>
         <mapping class="by.itacademy.entity.Topic"/>
         <mapping class="by.itacademy.entity.Message"/>
-
+        <mapping class="by.itacademy.entity.HeroTopic"/>
+        <mapping class="by.itacademy.entity.HeroTopicMessage"/>
     </session-factory>
 </hibernate-configuration>

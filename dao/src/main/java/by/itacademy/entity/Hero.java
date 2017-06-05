@@ -33,5 +33,9 @@ public class Hero extends BaseEntity{
     @OneToMany(mappedBy = "hero")
     private List<HeroAbility> abilities = new ArrayList<>();
 
+    @Getter
+    @Setter
+    @OneToMany(mappedBy = "hero")
+    private List<HeroTopic> topics = new ArrayList<>();
 
 }

@@ -11,6 +11,7 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "message")
 @NoArgsConstructor
+@Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Message extends BaseEntity {
 
     @Getter

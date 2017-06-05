@@ -3,6 +3,7 @@ package by.itacademy.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -10,6 +11,8 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "topic")
 @NoArgsConstructor
+@Inheritance(strategy = InheritanceType.JOINED)
+@ToString(callSuper = true)
 public class Topic extends BaseEntity{
 
     @Getter
