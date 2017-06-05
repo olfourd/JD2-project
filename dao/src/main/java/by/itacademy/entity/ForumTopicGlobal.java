@@ -3,6 +3,7 @@ package by.itacademy.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,6 +15,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @Table(name = "global_forum_topic")
+@ToString
 public class ForumTopicGlobal extends BaseEntity{
 
     @Getter

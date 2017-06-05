@@ -9,7 +9,7 @@ import java.util.List;
 @Entity
 @Table(name = "user")
 @NoArgsConstructor
-@ToString
+@ToString(exclude = {"createdTopics", "participationInTopics"})
 public class User extends BaseEntity {
 
     public User(String login, String password, String name, String nickName, UserRole role) {

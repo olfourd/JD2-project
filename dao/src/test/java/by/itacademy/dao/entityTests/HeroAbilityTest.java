@@ -25,7 +25,7 @@ public class HeroAbilityTest {
         Session session = SESSION_FACTORY.openSession();
         Transaction transaction = session.beginTransaction();
 
-        Hero hero = session.find(Hero.class, 135L);
+        Hero hero = session.find(Hero.class, 4L);
         HeroAbility ability = new HeroAbility();
         ability.setName("Hello");
         ability.setKeyAbility("passive");
