@@ -30,5 +30,8 @@
         <mapping class="by.itacademy.entity.HeroTopicMessage"/>
         <mapping class="by.itacademy.entity.News"/>
         <mapping class="by.itacademy.entity.NewsComment"/>
+        <mapping class="by.itacademy.entity.ForumTopicGlobal"/>
+        <mapping class="by.itacademy.entity.ForumTopicSimple"/>
+        <mapping class="by.itacademy.entity.ForumPost"/>
     </session-factory>
 </hibernate-configuration>
