@@ -17,7 +17,7 @@ public class HeroTopicMessage extends Message{
     @Getter
     @Setter
     @Column(name = "likes")
-    private int likeFromOthersUsers;
+    private long likeFromOthersUsers;
 
     @Getter
     @Setter

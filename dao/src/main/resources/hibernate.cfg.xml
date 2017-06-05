@@ -18,5 +18,7 @@
         <mapping class="by.itacademy.entity.Message"/>
         <mapping class="by.itacademy.entity.HeroTopic"/>
         <mapping class="by.itacademy.entity.HeroTopicMessage"/>
+        <mapping class="by.itacademy.entity.News"/>
+        <mapping class="by.itacademy.entity.NewsComment"/>
     </session-factory>
 </hibernate-configuration>
