@@ -1,7 +1,7 @@
 package by.itacademy.dao.entityTests;
 
-import by.itacademy.entity.Hero;
-import by.itacademy.entity.HeroRole;
+import by.itacademy.entity.User;
+import by.itacademy.entity.UserRole;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -12,29 +12,30 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
-public class HeroTest {
+public class UserTest {
     private static SessionFactory SESSION_FACTORY;
 
     @BeforeClass
     public static void init() {
-        SESSION_FACTORY = new Configuration().configure().buildSessionFactory();
+        SESSION_FACTORY = new Configuration().configure().configure().buildSessionFactory();
     }
 
     @Test
-    public void saveReadTest() throws Exception {
+    public void createReadUserTest() {
         Session session = SESSION_FACTORY.openSession();
         Transaction transaction = session.beginTransaction();
 
-        Hero hero = new Hero();
+        User user = new User("qwerty", "qwerty", "qwerty", "qwerty", UserRole.USER);
+        Long id = (Long) session.save(user);
+        User savedUser = session.find(User.class, id);
 
-        hero.setName("Shai");
-        hero.setRole(HeroRole.SHOOTER);
-        Long id = (Long) session.save(hero);
-        Hero savedHero = session.find(Hero.class, id);
-        assertEquals(hero, savedHero);
+        assertEquals(user, savedUser);
+
         transaction.commit();
         session.close();
+
     }
+
 
     @AfterClass
     public static void finish() {

@@ -26,7 +26,7 @@ public class Hero extends BaseEntity{
     @Getter
     @Setter
     @Enumerated(EnumType.STRING)
-    private HeroRoleEnum role;
+    private HeroRole role;
 
     @Getter
     @Setter

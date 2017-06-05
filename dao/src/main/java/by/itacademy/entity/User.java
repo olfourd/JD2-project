@@ -3,6 +3,8 @@ package by.itacademy.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "user")
@@ -10,12 +12,20 @@ import javax.persistence.*;
 @ToString
 public class User extends BaseEntity {
 
-    @Column(name = "login")
+    public User(String login, String password, String name, String nickName, UserRole role) {
+        this.login = login;
+        this.password = password;
+        this.name = name;
+        this.nickName = nickName;
+        this.role = role;
+    }
+
+    @Column(name = "login", nullable = false)
     @Getter
     @Setter
     private String login;
 
-    @Column(name = "password")
+    @Column(name = "password", nullable = false)
     @Getter
     @Setter
     private String password;
@@ -38,11 +48,19 @@ public class User extends BaseEntity {
     @Column(name = "pass_to_picture")
     @Getter
     @Setter
-    private String srcPicture;
+    private String srcAvatar;
 
-    @Column(name = "role")
+    @Column(name = "role", nullable = false)
     @Enumerated(EnumType.STRING)
     @Getter
     @Setter
     private UserRole role;
+
+    @Getter
+    @Setter
+    @OneToMany(mappedBy = "user")
+    private List<Topic> createdTopics = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<Message> participationInTopics = new ArrayList<>();
 }
