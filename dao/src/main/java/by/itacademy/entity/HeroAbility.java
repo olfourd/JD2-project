@@ -6,7 +6,14 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "ability")
+@NoArgsConstructor
 public class HeroAbility extends BaseEntity{
+
+    public HeroAbility(String name, KeyAbility keyAbility, Hero hero) {
+        this.name = name;
+        this.keyAbility = keyAbility;
+        this.hero = hero;
+    }
 
     @Getter
     @Setter
@@ -15,8 +22,9 @@ public class HeroAbility extends BaseEntity{
 
     @Getter
     @Setter
+    @Enumerated(EnumType.STRING)
     @Column(name = "key_ability")
-    private String keyAbility;
+    private KeyAbility keyAbility;
 
     @Getter
     @Setter

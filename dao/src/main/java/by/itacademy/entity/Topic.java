@@ -12,8 +12,14 @@ import java.time.LocalDate;
 @Table(name = "topic")
 @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
-@ToString(callSuper = true)
+@ToString(callSuper = true,exclude = {"user"})
 public class Topic extends BaseEntity{
+
+    public Topic(String name, String text, User user) {
+        this.name = name;
+        this.text = text;
+        this.user = user;
+    }
 
     @Getter
     @Setter

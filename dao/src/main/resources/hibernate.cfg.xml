@@ -23,5 +23,6 @@
         <mapping class="by.itacademy.entity.ForumTopicGlobal"/>
         <mapping class="by.itacademy.entity.ForumTopicSimple"/>
         <mapping class="by.itacademy.entity.ForumPost"/>
+        <mapping class="by.itacademy.entity.RoleOfUser"/>
     </session-factory>
 </hibernate-configuration>

@@ -4,7 +4,9 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "user")
@@ -12,15 +14,15 @@ import java.util.List;
 @ToString(exclude = {"createdTopics", "participationInTopics"})
 public class User extends BaseEntity {
 
-    public User(String login, String password, String name, String nickName, UserRole role) {
+    public User(String login, String password, String nickName) {
         this.login = login;
         this.password = password;
-        this.name = name;
         this.nickName = nickName;
-        this.role = role;
     }
 
-    @Column(name = "login", nullable = false)
+
+    //УСТАНОВИТЬ УНИКАЛЬНОСТЬ?!
+    @Column(name = "login", nullable = false, unique = true)
     @Getter
     @Setter
     private String login;
@@ -35,7 +37,8 @@ public class User extends BaseEntity {
     @Setter
     private String name;
 
-    @Column(name = "nick_name")
+    //УСТАНОВИТЬ УНИКАЛЬНОСТЬ?!
+    @Column(name = "nick_name", nullable = false, unique = true)
     @Getter
     @Setter
     private String nickName;
@@ -50,17 +53,18 @@ public class User extends BaseEntity {
     @Setter
     private String srcAvatar;
 
-    @Column(name = "role", nullable = false)
-    @Enumerated(EnumType.STRING)
-    @Getter
-    @Setter
-    private UserRole role;
-
     @Getter
     @Setter
     @OneToMany(mappedBy = "user")
     private List<Topic> createdTopics = new ArrayList<>();
 
+    @Getter
+    @Setter
     @OneToMany(mappedBy = "user")
     private List<Message> participationInTopics = new ArrayList<>();
+
+    @Getter
+    @Setter
+    @ManyToMany(mappedBy = "users")
+    private Set<RoleOfUser> roleOfUser = new HashSet<>(4);
 }

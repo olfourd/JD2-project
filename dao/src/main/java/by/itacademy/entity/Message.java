@@ -14,6 +14,11 @@ import java.time.LocalDate;
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Message extends BaseEntity {
 
+    public Message(String text, User user) {
+        this.text = text;
+        this.user = user;
+    }
+
     @Getter
     @Setter
     @Column(name = "text", nullable = false)

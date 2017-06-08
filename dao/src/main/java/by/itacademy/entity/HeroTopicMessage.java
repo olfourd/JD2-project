@@ -14,6 +14,11 @@ import javax.persistence.*;
 @PrimaryKeyJoinColumn(name = "MESSAGE_ID")
 public class HeroTopicMessage extends Message{
 
+    public HeroTopicMessage(String text, User user, HeroTopic topic) {
+        super(text, user);
+        this.topic = topic;
+    }
+
     @Getter
     @Setter
     @Column(name = "likes")

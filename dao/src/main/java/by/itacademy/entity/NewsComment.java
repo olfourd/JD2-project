@@ -3,6 +3,7 @@ package by.itacademy.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -10,7 +11,13 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Table(name = "messages_from_news")
 @PrimaryKeyJoinColumn(name = "MESSAGE_ID")
+@ToString(callSuper = true, exclude = {"news"})
 public class NewsComment extends Message{
+
+    public NewsComment(String text, User user, News news) {
+        super(text, user);
+        this.news = news;
+    }
 
     @ManyToOne
     @JoinColumn(name = "NEWS_ID")

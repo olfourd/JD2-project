@@ -12,9 +12,14 @@ import java.util.List;
 @Entity
 @Table(name = "topics_heroes")
 @NoArgsConstructor
-@ToString(callSuper = true)
+@ToString(callSuper = true, exclude = {"hero", "containedMessages"})
 @PrimaryKeyJoinColumn(name = "TOPIC_ID")
 public class HeroTopic extends Topic {
+
+    public HeroTopic(String name, String text, User user, Hero hero) {
+        super(name, text, user);
+        this.hero = hero;
+    }
 
     @Getter
     @Setter

@@ -15,8 +15,12 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @Table(name = "global_forum_topic")
-@ToString
+@ToString(exclude = {"containedTopics"})
 public class ForumTopicGlobal extends BaseEntity{
+
+    public ForumTopicGlobal(String name) {
+        this.name = name;
+    }
 
     @Getter
     @Setter
