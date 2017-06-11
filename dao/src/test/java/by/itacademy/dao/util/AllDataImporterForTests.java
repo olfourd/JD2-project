@@ -4,6 +4,7 @@ import by.itacademy.entity.*;
 import lombok.NoArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 
 import java.util.*;
 
@@ -24,6 +25,7 @@ public final class AllDataImporterForTests {
 
     public void importTestData(SessionFactory sessionFactory) {
         Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
 
         User userQwerty = saveUser(session, "Qwerty", "Qwerty", "AmazingQwerty");
         User userOlfourd = saveUser(session, "Olfourd", "Qwerty", "AmazingOlfourd");
@@ -38,8 +40,8 @@ public final class AllDataImporterForTests {
         HeroTopic heroTopic = saveHeroTopic(session, "1st topic Alistar",
                 "Hello from first topic Alistar", userQwerty, alistar);
         saveHeroTopic(session, "2nd topic Alistar", "Hello from second topic Alistar",
-                userOlfourd, alistar);
-        saveHeroTopicComment(session, "Hi all, I'm first", userDeGriz, heroTopic);
+                userQwerty, alistar);
+        saveHeroTopicComment(session, "Hi all, I'm first", userQwerty, heroTopic);
         saveHeroTopicComment(session, "second =(", userQwerty, heroTopic);
 
         Hero braum = saveHero(session, "Braum", HeroRole.SUPPORT);
@@ -50,15 +52,16 @@ public final class AllDataImporterForTests {
         saveAbility(session, "Glacial Fissure", KeyAbility.R, braum);
 
         News news = saveNews(session, "This is the first News!", "hi", userOlfourd);
-        saveNewsCommentTest(session, "hello from test", userQwerty, news);
-        saveNewsCommentTest(session, "hi all", userQwerty, news);
+        saveNewsCommentTest(session, "hello from test", userOlfourd, news);
+        saveNewsCommentTest(session, "hi all", userOlfourd, news);
 
         ForumTopicGlobal topicGlobal = saveGlobalTopic(session, "global topic");
         ForumTopicSimple topicSimple = saveSimpleTopic(session, "simple topic",
-                "what is it?", userOlfourd, topicGlobal);
-        saveForumPost(session, "this is comment", userOlfourd, topicSimple);
-        saveForumPost(session, "qwerty", userQwerty, topicSimple);
+                "what is it?", userDeGriz, topicGlobal);
+        saveForumPost(session, "this is comment", userDeGriz, topicSimple);
+        saveForumPost(session, "qwerty", userDeGriz, topicSimple);
 
+        transaction.commit();
         session.close();
     }
 
@@ -112,6 +115,7 @@ public final class AllDataImporterForTests {
         roleOfUser.setRole(UserRole.USER);
         roles.add(roleOfUser);
         user.setRoleOfUser(roles);
+        user.setAddress(new Address("Belarus", "Minsk"));
         session.save(user);
         return user;
     }

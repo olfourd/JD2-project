@@ -1,9 +1,6 @@
 package by.itacademy.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -13,6 +10,8 @@ import java.util.List;
 @Table(name = "hero")
 @NoArgsConstructor
 @ToString(exclude = {"abilities", "topics"})
+@EqualsAndHashCode(callSuper = true)
+
 public class Hero extends BaseEntity{
 
     public Hero(String name, HeroRole role) {

@@ -1,9 +1,6 @@
 package by.itacademy.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -14,6 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @ToString(callSuper = true, exclude = {"hero", "containedMessages"})
 @PrimaryKeyJoinColumn(name = "TOPIC_ID")
+@EqualsAndHashCode(callSuper = true)
 public class HeroTopic extends Topic {
 
     public HeroTopic(String name, String text, User user, Hero hero) {

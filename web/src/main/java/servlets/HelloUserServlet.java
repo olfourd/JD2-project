@@ -26,8 +26,8 @@ public class HelloUserServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Long requestedId = Long.valueOf(req.getParameter("userId"));
-        UserDto userDto = new UserSecvice().getUser(requestedId);
-        req.setAttribute("user", userDto);
+        UserDto user = new UserSecvice().getUser(requestedId);
+        req.setAttribute("user", user);
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/pages/HelloUser.jsp");
         dispatcher.forward(req,resp);
     }

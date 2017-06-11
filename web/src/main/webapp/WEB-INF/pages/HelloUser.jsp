@@ -13,7 +13,6 @@
     <title>Hello</title>
 </head>
 <body>
-<p> Hello, ${requestScope.user.getName()} ${requestScope.user.getSecondName()}.
-<p> Your e-mail: ${requestScope.user.getMail()}
+<p> Hello, ${requestScope.user.getNickName()}.
 </body>
 </html>

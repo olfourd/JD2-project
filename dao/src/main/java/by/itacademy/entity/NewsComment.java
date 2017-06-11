@@ -1,9 +1,6 @@
 package by.itacademy.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -12,6 +9,7 @@ import javax.persistence.*;
 @Table(name = "messages_from_news")
 @PrimaryKeyJoinColumn(name = "MESSAGE_ID")
 @ToString(callSuper = true, exclude = {"news"})
+@EqualsAndHashCode(callSuper = true)
 public class NewsComment extends Message{
 
     public NewsComment(String text, User user, News news) {

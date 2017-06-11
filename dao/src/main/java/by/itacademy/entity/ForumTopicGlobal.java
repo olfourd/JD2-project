@@ -1,9 +1,6 @@
 package by.itacademy.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +13,8 @@ import java.util.List;
 @NoArgsConstructor
 @Table(name = "global_forum_topic")
 @ToString(exclude = {"containedTopics"})
+@EqualsAndHashCode(callSuper = true)
+
 public class ForumTopicGlobal extends BaseEntity{
 
     public ForumTopicGlobal(String name) {

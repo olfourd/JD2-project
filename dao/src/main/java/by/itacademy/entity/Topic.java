@@ -1,9 +1,6 @@
 package by.itacademy.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -13,6 +10,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
 @ToString(callSuper = true,exclude = {"user"})
+@EqualsAndHashCode(callSuper = true)
 public class Topic extends BaseEntity{
 
     public Topic(String name, String text, User user) {

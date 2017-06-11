@@ -1,9 +1,6 @@
 package by.itacademy.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -12,6 +9,8 @@ import javax.persistence.*;
 @ToString(callSuper = true)
 @NoArgsConstructor
 @PrimaryKeyJoinColumn(name = "MESSAGE_ID")
+@EqualsAndHashCode(callSuper = true)
+
 public class HeroTopicMessage extends Message{
 
     public HeroTopicMessage(String text, User user, HeroTopic topic) {

@@ -11,7 +11,8 @@ import java.util.Set;
 @Entity
 @Table(name = "user")
 @NoArgsConstructor
-@ToString(exclude = {"createdTopics", "participationInTopics"})
+@ToString(exclude = {"createdTopics", "participationInTopics", "roleOfUser"})
+@EqualsAndHashCode(callSuper = true)
 public class User extends BaseEntity {
 
     public User(String login, String password, String nickName) {
@@ -20,6 +21,12 @@ public class User extends BaseEntity {
         this.nickName = nickName;
     }
 
+    public User(String login, String password, String nickName, UserRole role) {
+        this.login = login;
+        this.password = password;
+        this.nickName = nickName;
+        this.roleOfUser.add(new RoleOfUser(role));
+    }
 
     //УСТАНОВИТЬ УНИКАЛЬНОСТЬ?!
     @Column(name = "login", nullable = false, unique = true)
@@ -52,6 +59,11 @@ public class User extends BaseEntity {
     @Getter
     @Setter
     private String srcAvatar;
+
+    @Getter
+    @Setter
+    @Embedded
+    private Address address;
 
     @Getter
     @Setter

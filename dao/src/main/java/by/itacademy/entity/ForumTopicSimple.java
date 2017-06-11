@@ -1,10 +1,7 @@
 package by.itacademy.entity;
 
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -15,6 +12,8 @@ import java.util.List;
 @Table(name = "simple_forum_topic")
 @PrimaryKeyJoinColumn(name = "TOPIC_ID")
 @ToString(exclude = {"containedPosts"}, callSuper = true)
+@EqualsAndHashCode(callSuper = true)
+
 public class ForumTopicSimple extends Topic{
 
     public ForumTopicSimple(String name, String text, User user, ForumTopicGlobal theme) {

@@ -7,6 +7,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "ability")
 @NoArgsConstructor
+@EqualsAndHashCode(callSuper = true)
 public class HeroAbility extends BaseEntity{
 
     public HeroAbility(String name, KeyAbility keyAbility, Hero hero) {

@@ -3,17 +3,17 @@ package by.itacademy.dao;
 import by.itacademy.entity.RoleOfUser;
 import by.itacademy.entity.Topic;
 import by.itacademy.entity.User;
-import by.itacademy.entity.UserRole;
-import lombok.NoArgsConstructor;
 
 import java.util.List;
 import java.util.Set;
 
-@NoArgsConstructor
-public final class UserDao {
+public final class UserDao extends GenericDao<User> {
 
     private static UserDao INSTANCE;
 
+    private UserDao() {
+        super(User.class);
+    }
 
     public static UserDao getInstance() {
         if (INSTANCE == null) {
@@ -26,39 +26,31 @@ public final class UserDao {
         return INSTANCE;
     }
 
-    public User createUser(String login, String password, String nickName) {
+    public User changePassword(long idChangingUser, String newPassword) {
         return null;
     }
 
-    public User readUserById(Long id) {
+    public User changeName(long idChangingUser, String name) {
         return null;
     }
 
-    public User changePassword(String password) {
+    public User changeNickName(long idChangingUser, String nickName) {
         return null;
     }
 
-    public User changeName(String name) {
+    public User changeMail(long idChangingUser, String mail) {
         return null;
     }
 
-    public User changeNickName(String nickName) {
+//    public User changeAvatar(String passToAvatar) {
+//        return null;
+//    }
+
+    public List<Topic> getAllCreatedTopics(long userId) {
         return null;
     }
 
-    public User changeMail(String mail) {
-        return null;
-    }
-
-    public User changeAvatar(String passToAvatar) {
-        return null;
-    }
-
-    public List<Topic> createdTopics() {
-        return null;
-    }
-
-    public Set<RoleOfUser> readAllRolles(){
+    public Set<RoleOfUser> getAllRolesById(long userId) {
         return null;
     }
 

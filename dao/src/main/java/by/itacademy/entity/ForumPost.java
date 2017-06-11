@@ -1,10 +1,7 @@
 package by.itacademy.entity;
 
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -13,6 +10,7 @@ import javax.persistence.*;
 @Table(name = "forum_post")
 @PrimaryKeyJoinColumn(name = "MESSAGE_ID")
 @ToString(exclude = {"forumTopic"})
+@EqualsAndHashCode(callSuper = true)
 public class ForumPost extends Message{
 
     public ForumPost(String text, User user, ForumTopicSimple forumTopic) {

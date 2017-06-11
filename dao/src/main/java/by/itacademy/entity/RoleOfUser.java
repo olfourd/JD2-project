@@ -1,9 +1,6 @@
 package by.itacademy.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -13,7 +10,12 @@ import java.util.Set;
 @Table(name = "role")
 @NoArgsConstructor
 @ToString
+@EqualsAndHashCode(callSuper = true)
 public class RoleOfUser extends BaseEntity {
+
+    public RoleOfUser(UserRole role) {
+        this.role = role;
+    }
 
     @Getter
     @Setter

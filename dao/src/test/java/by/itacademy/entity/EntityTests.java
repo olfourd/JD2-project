@@ -1,8 +1,7 @@
-package by.itacademy.dao.entity;
+package by.itacademy.entity;
 
 
 import by.itacademy.dao.util.AllDataImporterForTests;
-import by.itacademy.entity.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
