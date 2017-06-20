@@ -4,8 +4,6 @@ import by.itacademy.dao.interfaces.UserDao;
 import by.itacademy.entity.common.*;
 import by.itacademy.entity.other.Address;
 import com.querydsl.jpa.impl.JPAQuery;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
