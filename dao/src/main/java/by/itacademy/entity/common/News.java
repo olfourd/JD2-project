@@ -1,4 +1,4 @@
-package by.itacademy.entity;
+package by.itacademy.entity.common;
 
 import lombok.*;
 
@@ -15,7 +15,7 @@ import java.util.List;
 @ToString(callSuper = true, exclude = {"containedComments"})
 @EqualsAndHashCode(callSuper = true)
 
-public class News extends Topic{
+public class News extends Topic {
 
     public News(String name, String text, User user) {
         super(name, text, user);

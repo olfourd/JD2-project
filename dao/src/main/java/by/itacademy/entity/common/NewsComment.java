@@ -1,5 +1,8 @@
-package by.itacademy.entity;
+package by.itacademy.entity.common;
 
+import by.itacademy.entity.common.Message;
+import by.itacademy.entity.common.News;
+import by.itacademy.entity.common.User;
 import lombok.*;
 
 import javax.persistence.*;
@@ -9,8 +12,7 @@ import javax.persistence.*;
 @Table(name = "messages_from_news")
 @PrimaryKeyJoinColumn(name = "MESSAGE_ID")
 @ToString(callSuper = true, exclude = {"news"})
-@EqualsAndHashCode(callSuper = true)
-public class NewsComment extends Message{
+public class NewsComment extends Message {
 
     public NewsComment(String text, User user, News news) {
         super(text, user);

@@ -1,6 +1,10 @@
-package by.itacademy.dao.util;
+package by.itacademy.util;
 
-import by.itacademy.entity.*;
+import by.itacademy.entity.common.*;
+import by.itacademy.entity.other.Address;
+import by.itacademy.entity.other.HeroRole;
+import by.itacademy.entity.other.KeyAbility;
+import by.itacademy.entity.other.UserRole;
 import lombok.NoArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -9,14 +13,14 @@ import org.hibernate.Transaction;
 import java.util.*;
 
 @NoArgsConstructor
-public final class AllDataImporterForTests {
-    private static AllDataImporterForTests INSTANCE;
+public final class DataImporterToH2 {
+    private static DataImporterToH2 INSTANCE;
 
-    public static AllDataImporterForTests getInstance() {
+    public static DataImporterToH2 getInstance() {
         if (INSTANCE == null) {
-            synchronized (AllDataImporterForTests.class) {
+            synchronized (DataImporterToH2.class) {
                 if (INSTANCE == null) {
-                    INSTANCE = new AllDataImporterForTests();
+                    INSTANCE = new DataImporterToH2();
                 }
             }
         }
@@ -110,10 +114,12 @@ public final class AllDataImporterForTests {
 
     private User saveUser(Session session, String login, String password, String nickName) {
         User user = new User(login, password, nickName);
-        Set<RoleOfUser> roles = new HashSet<>(4);
-        RoleOfUser roleOfUser = new RoleOfUser();
-        roleOfUser.setRole(UserRole.USER);
-        roles.add(roleOfUser);
+        List<RoleOfUser> roles = new ArrayList<>(4);
+        RoleOfUser roleUser = new RoleOfUser();
+        roleUser.setRole(UserRole.USER);
+        roles.add(roleUser);
+        roleUser.setRole(UserRole.ADMIN);
+        roles.add(roleUser);
         user.setRoleOfUser(roles);
         user.setAddress(new Address("Belarus", "Minsk"));
         session.save(user);
@@ -132,4 +138,22 @@ public final class AllDataImporterForTests {
         return heroAbility;
     }
 
+    public void deleteAllDateFromDatabase(SessionFactory sessionFactory){
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+
+        session.createQuery("delete ForumPost");
+        session.createQuery("delete ForumTopicSimple ");
+        session.createQuery("delete ForumTopicGlobal ");
+        session.createQuery("delete NewsComment ");
+        session.createQuery("delete News ");
+        session.createQuery("delete HeroAbility ");
+        session.createQuery("delete HeroTopicMessage ");
+        session.createQuery("delete HeroTopic ");
+        session.createQuery("delete Hero ");
+        session.createQuery("delete User ");
+
+
+
+    }
 }

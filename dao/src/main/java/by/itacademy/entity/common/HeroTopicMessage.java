@@ -1,4 +1,4 @@
-package by.itacademy.entity;
+package by.itacademy.entity.common;
 
 import lombok.*;
 
@@ -11,7 +11,7 @@ import javax.persistence.*;
 @PrimaryKeyJoinColumn(name = "MESSAGE_ID")
 @EqualsAndHashCode(callSuper = true)
 
-public class HeroTopicMessage extends Message{
+public class HeroTopicMessage extends Message {
 
     public HeroTopicMessage(String text, User user, HeroTopic topic) {
         super(text, user);

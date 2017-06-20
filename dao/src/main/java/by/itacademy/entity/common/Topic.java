@@ -1,4 +1,4 @@
-package by.itacademy.entity;
+package by.itacademy.entity.common;
 
 import lombok.*;
 
@@ -10,8 +10,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
 @ToString(callSuper = true,exclude = {"user"})
-@EqualsAndHashCode(callSuper = true)
-public class Topic extends BaseEntity{
+public class Topic extends BaseEntity {
 
     public Topic(String name, String text, User user) {
         this.name = name;

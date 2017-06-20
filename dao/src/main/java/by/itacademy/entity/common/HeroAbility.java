@@ -1,5 +1,6 @@
-package by.itacademy.entity;
+package by.itacademy.entity.common;
 
+import by.itacademy.entity.other.KeyAbility;
 import lombok.*;
 
 import javax.persistence.*;
@@ -8,7 +9,7 @@ import javax.persistence.*;
 @Table(name = "ability")
 @NoArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-public class HeroAbility extends BaseEntity{
+public class HeroAbility extends BaseEntity {
 
     public HeroAbility(String name, KeyAbility keyAbility, Hero hero) {
         this.name = name;

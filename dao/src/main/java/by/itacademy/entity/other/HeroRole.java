@@ -1,4 +1,4 @@
-package by.itacademy.entity;
+package by.itacademy.entity.other;
 
 public enum HeroRole {
     ASSASIN,

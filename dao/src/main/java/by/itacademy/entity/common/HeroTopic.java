@@ -1,4 +1,4 @@
-package by.itacademy.entity;
+package by.itacademy.entity.common;
 
 import lombok.*;
 

@@ -1,11 +1,14 @@
 package by.itacademy.entity;
 
 
-import by.itacademy.dao.util.AllDataImporterForTests;
+import by.itacademy.dao.classes.UserDaoImpl;
+import by.itacademy.entity.common.*;
+import by.itacademy.entity.other.HeroRole;
+import by.itacademy.entity.other.KeyAbility;
+import by.itacademy.util.DataImporterToH2;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -17,8 +20,8 @@ public class EntityTests {
 
     @Before
     public void init() {
-        sessionFactory = new Configuration().configure().buildSessionFactory();
-        AllDataImporterForTests.getInstance().importTestData(sessionFactory);
+        sessionFactory = new UserDaoImpl().getSessionFactory();
+        DataImporterToH2.getInstance().importTestData(sessionFactory);
     }
 
     @Test

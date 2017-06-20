@@ -15,19 +15,19 @@
         <property name="hibernate.show_sql">true</property>
         <property name="format_sql">true</property>
 
-        <mapping class="by.itacademy.entity.User"/>
-        <mapping class="by.itacademy.entity.Hero"/>
-        <mapping class="by.itacademy.entity.HeroAbility"/>
-        <mapping class="by.itacademy.entity.Topic"/>
-        <mapping class="by.itacademy.entity.Message"/>
-        <mapping class="by.itacademy.entity.HeroTopic"/>
-        <mapping class="by.itacademy.entity.HeroTopicMessage"/>
-        <mapping class="by.itacademy.entity.News"/>
-        <mapping class="by.itacademy.entity.NewsComment"/>
-        <mapping class="by.itacademy.entity.ForumTopicGlobal"/>
-        <mapping class="by.itacademy.entity.ForumTopicSimple"/>
-        <mapping class="by.itacademy.entity.ForumPost"/>
-        <mapping class="by.itacademy.entity.RoleOfUser"/>
-        <mapping class="by.itacademy.entity.Address"/>
+        <mapping class="by.itacademy.entity.common.User"/>
+        <mapping class="by.itacademy.entity.common.Hero"/>
+        <mapping class="by.itacademy.entity.common.HeroAbility"/>
+        <mapping class="by.itacademy.entity.common.Topic"/>
+        <mapping class="by.itacademy.entity.common.Message"/>
+        <mapping class="by.itacademy.entity.common.HeroTopic"/>
+        <mapping class="by.itacademy.entity.common.HeroTopicMessage"/>
+        <mapping class="by.itacademy.entity.common.News"/>
+        <mapping class="by.itacademy.entity.common.NewsComment"/>
+        <mapping class="by.itacademy.entity.common.ForumTopicGlobal"/>
+        <mapping class="by.itacademy.entity.common.ForumTopicSimple"/>
+        <mapping class="by.itacademy.entity.common.ForumPost"/>
+        <mapping class="by.itacademy.entity.common.RoleOfUser"/>
+        <mapping class="by.itacademy.entity.other.Address"/>
     </session-factory>
 </hibernate-configuration>

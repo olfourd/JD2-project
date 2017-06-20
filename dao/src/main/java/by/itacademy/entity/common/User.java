@@ -1,5 +1,7 @@
-package by.itacademy.entity;
+package by.itacademy.entity.common;
 
+import by.itacademy.entity.other.Address;
+import by.itacademy.entity.other.UserRole;
 import lombok.*;
 
 import javax.persistence.*;
@@ -78,5 +80,5 @@ public class User extends BaseEntity {
     @Getter
     @Setter
     @ManyToMany(mappedBy = "users")
-    private Set<RoleOfUser> roleOfUser = new HashSet<>(4);
+    private List<RoleOfUser> roleOfUser = new ArrayList<>(4);
 }

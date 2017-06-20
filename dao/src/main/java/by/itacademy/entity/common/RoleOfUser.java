@@ -1,9 +1,12 @@
-package by.itacademy.entity;
+package by.itacademy.entity.common;
 
+import by.itacademy.entity.other.UserRole;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -28,5 +31,5 @@ public class RoleOfUser extends BaseEntity {
     @JoinTable(name = "user_role",
             joinColumns = @JoinColumn(name = "USER_ID"),
             inverseJoinColumns = @JoinColumn(name = "ROLE_ID"))
-    Set<User> users = new HashSet<>();
+    List<User> users = new ArrayList<>(4);
 }

@@ -1,5 +1,6 @@
-package by.itacademy.entity;
+package by.itacademy.entity.common;
 
+import by.itacademy.entity.other.HeroRole;
 import lombok.*;
 
 import javax.persistence.*;
@@ -12,7 +13,7 @@ import java.util.List;
 @ToString(exclude = {"abilities", "topics"})
 @EqualsAndHashCode(callSuper = true)
 
-public class Hero extends BaseEntity{
+public class Hero extends BaseEntity {
 
     public Hero(String name, HeroRole role) {
         this.name = name;

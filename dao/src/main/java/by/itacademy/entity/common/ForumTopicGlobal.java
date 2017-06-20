@@ -1,4 +1,4 @@
-package by.itacademy.entity;
+package by.itacademy.entity.common;
 
 import lombok.*;
 
@@ -15,7 +15,7 @@ import java.util.List;
 @ToString(exclude = {"containedTopics"})
 @EqualsAndHashCode(callSuper = true)
 
-public class ForumTopicGlobal extends BaseEntity{
+public class ForumTopicGlobal extends BaseEntity {
 
     public ForumTopicGlobal(String name) {
         this.name = name;

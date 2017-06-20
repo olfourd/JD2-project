@@ -1,4 +1,4 @@
-package by.itacademy.entity;
+package by.itacademy.entity.common;
 
 
 import lombok.EqualsAndHashCode;
@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
 @EqualsAndHashCode(callSuper = true)
-public abstract class Message extends BaseEntity {
+public class Message extends BaseEntity {
 
     public Message(String text, User user) {
         this.text = text;

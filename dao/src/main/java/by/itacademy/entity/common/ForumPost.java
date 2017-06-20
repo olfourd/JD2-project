@@ -1,4 +1,4 @@
-package by.itacademy.entity;
+package by.itacademy.entity.common;
 
 
 import lombok.*;
@@ -11,7 +11,7 @@ import javax.persistence.*;
 @PrimaryKeyJoinColumn(name = "MESSAGE_ID")
 @ToString(exclude = {"forumTopic"})
 @EqualsAndHashCode(callSuper = true)
-public class ForumPost extends Message{
+public class ForumPost extends Message {
 
     public ForumPost(String text, User user, ForumTopicSimple forumTopic) {
         super(text, user);
