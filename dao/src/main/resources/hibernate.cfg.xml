@@ -10,6 +10,7 @@
         <property name="hibernate.connection.url">jdbc:mysql://localhost/jd2_project</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">root</property>
+        <!--<property name="hbm2ddl.auto"></property>-->
 
         <mapping class="by.itacademy.entity.common.User"/>
         <mapping class="by.itacademy.entity.common.Hero"/>

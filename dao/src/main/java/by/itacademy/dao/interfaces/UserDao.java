@@ -25,4 +25,5 @@ public interface UserDao extends BaseDao<User> {
     List<RoleOfUser> getAllRolles(Long primaryKey);
 
     List<Topic> getAllTopicsWhereUserTakePartInById(Long primaryKey);
+
 }

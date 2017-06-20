@@ -5,31 +5,17 @@ import by.itacademy.entity.other.Address;
 import by.itacademy.entity.other.HeroRole;
 import by.itacademy.entity.other.KeyAbility;
 import by.itacademy.entity.other.UserRole;
-import lombok.NoArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.springframework.stereotype.Component;
 
 import java.util.*;
 
-@NoArgsConstructor
+@Component
 public final class DataImporterToH2 {
-    private static DataImporterToH2 INSTANCE;
 
-    public static DataImporterToH2 getInstance() {
-        if (INSTANCE == null) {
-            synchronized (DataImporterToH2.class) {
-                if (INSTANCE == null) {
-                    INSTANCE = new DataImporterToH2();
-                }
-            }
-        }
-        return INSTANCE;
-    }
-
-    public void importTestData(SessionFactory sessionFactory) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
+    public void importTestData(Session session) {
 
         User userQwerty = saveUser(session, "Qwerty", "Qwerty", "AmazingQwerty");
         User userOlfourd = saveUser(session, "Olfourd", "Qwerty", "AmazingOlfourd");
@@ -65,8 +51,6 @@ public final class DataImporterToH2 {
         saveForumPost(session, "this is comment", userDeGriz, topicSimple);
         saveForumPost(session, "qwerty", userDeGriz, topicSimple);
 
-        transaction.commit();
-        session.close();
     }
 
     private ForumPost saveForumPost(Session session, String text, User user, ForumTopicSimple topic) {
