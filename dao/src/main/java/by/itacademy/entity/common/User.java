@@ -75,7 +75,7 @@ public class User extends BaseEntity {
     @Getter
     @Setter
     @OneToMany(mappedBy = "user")
-    private List<Message> participationInTopics = new ArrayList<>();
+    private List<Message> messages = new ArrayList<>();
 
     @Getter
     @Setter

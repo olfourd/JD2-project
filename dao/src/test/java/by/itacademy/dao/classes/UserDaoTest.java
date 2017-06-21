@@ -1,6 +1,7 @@
 package by.itacademy.dao.classes;
 
 import by.itacademy.dao.interfaces.UserDao;
+import by.itacademy.entity.common.Message;
 import by.itacademy.entity.common.RoleOfUser;
 import by.itacademy.entity.common.Topic;
 import by.itacademy.entity.common.User;
@@ -36,7 +37,14 @@ public class UserDaoTest {
     }
 
     @Test
-    public void saveGetById() throws Exception {
+    public void getByLogin() {
+        String login = "Qwerty";
+        User user = userDao.getByLogin(login);
+        assertEquals(user.getLogin(), login);
+    }
+
+    @Test
+    public void saveGetById() {
         String name = "Hamlo";
         User user = new User(name, name, name);
         User savedUser = userDao.save(user);
@@ -73,7 +81,7 @@ public class UserDaoTest {
 
     @Test
     public void changePicture() throws Exception {
-        User user = userDao.getById(3L);
+        User user = userDao.getByLogin("DeGriz");
         String src = "D:/pictures";
         User changedUser = userDao.changePicture(user, src);
         assertEquals(changedUser.getSrcAvatar(), src);
@@ -82,7 +90,7 @@ public class UserDaoTest {
 
     @Test
     public void changeNickName() throws Exception {
-        User user = userDao.getById(3L);
+        User user = userDao.getByLogin("DeGriz");
         String nickName = "Vayne";
         User changedUser = userDao.changeNickName(user, nickName);
         assertEquals(changedUser.getNickName(), nickName);
@@ -90,7 +98,7 @@ public class UserDaoTest {
 
     @Test
     public void changePassword() throws Exception {
-        User user = userDao.getById(3L);
+        User user = userDao.getByLogin("DeGriz");
         String password = "112233";
         User changedUser = userDao.changePassword(user, password);
         assertEquals(changedUser.getPassword(), password);
@@ -98,7 +106,7 @@ public class UserDaoTest {
 
     @Test
     public void changeName() throws Exception {
-        User user = userDao.getById(3L);
+        User user = userDao.getByLogin("DeGriz");
         String name = "Alex";
         User changedUser = userDao.changeName(user, name);
         assertEquals(changedUser.getName(), name);
@@ -106,7 +114,7 @@ public class UserDaoTest {
 
     @Test
     public void changeCountry() throws Exception {
-        User user = userDao.getById(3L);
+        User user = userDao.getByLogin("DeGriz");
         String country = "Belarus";
         User changedUser = userDao.changeCountry(user, country);
         assertEquals(changedUser.getAddress().getCountry(), country);
@@ -114,7 +122,7 @@ public class UserDaoTest {
 
     @Test
     public void changeCity() throws Exception {
-        User user = userDao.getById(3L);
+        User user = userDao.getByLogin("DeGriz");
         String city = "Minsk";
         User changedUser = userDao.changeCity(user, city);
         assertEquals(changedUser.getAddress().getCity(), city);
@@ -122,24 +130,18 @@ public class UserDaoTest {
 
     @Test
     public void getCreatedTopicsById() throws Exception {
-        List<Topic> topics = userDao.getCreatedTopicsById(1L);
+        User user = userDao.getByLogin("Qwerty");
+        List<Topic> topics = userDao.getCreatedTopicsById(user.getId());
         List<String> namesOfTopics = topics.stream().map(Topic::getName).collect(toList());
         assertThat(namesOfTopics, contains("1st topic Alistar", "2nd topic Alistar"));
     }
 
     @Test
     public void getAllRolles() throws Exception {
-        List<RoleOfUser> rolles = userDao.getAllRolles(2L);
+        User user = userDao.getByLogin("Olfourd");
+        List<RoleOfUser> rolles = userDao.getAllRolles(user.getId());
         List<UserRole> collect = rolles.stream().map(RoleOfUser::getRole).collect(toList());
         assertTrue(collect.contains(UserRole.ADMIN));
         assertTrue(collect.contains(UserRole.USER));
     }
-
-    @Test
-    public void getAllTopicsWhereUserTakePartInById() throws Exception {
-        List<Topic> topics = userDao.getAllTopicsWhereUserTakePartInById(1L);
-        List<String> nameOfTopics = topics.stream().map(Topic::getName).collect(toList());
-        assertThat(nameOfTopics, contains("1st topic Alistar"));
-    }
-
 }

@@ -5,6 +5,7 @@ import by.itacademy.entity.common.News;
 import by.itacademy.entity.common.NewsComment;
 import by.itacademy.entity.common.QNewsComment;
 import com.querydsl.jpa.impl.JPAQuery;
+import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -46,5 +47,15 @@ public class NewsDaoImpl extends BaseDaoImpl<News> implements NewsDao{
                 .getResults();
 
         return results;
+    }
+
+    @Override
+    public News getByName(String name) {
+        Session session = getSessionFactory().getCurrentSession();
+        News news = session.createQuery("select n from News n where n.name=:newsName", News.class)
+                .setParameter("newsName", name)
+                .getResultList()
+                .get(0);
+        return news;
     }
 }

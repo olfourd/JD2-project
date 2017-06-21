@@ -36,8 +36,15 @@ public class NewsDaoTest {
     }
 
     @Test
+    public void getByName(){
+        String name = "This is the first News!";
+        News news = newsDao.getByName(name);
+        assertEquals(news.getName(), name);
+    }
+
+    @Test
     public void changePicture() throws Exception {
-        News news = newsDao.getById(3L);
+        News news = newsDao.getByName("This is the first News!");
         String srcPicture = "D:/";
         News updatedNews = newsDao.changePicture(news, srcPicture);
         assertEquals(updatedNews.getSrcPicture(), srcPicture);
@@ -45,7 +52,7 @@ public class NewsDaoTest {
 
     @Test
     public void changeName() throws Exception {
-        News news = newsDao.getById(3L);
+        News news = newsDao.getByName("This is the first News!");
         String name = "HELLO!";
         News updatedNews = newsDao.changeName(news, name);
         assertEquals(updatedNews.getName(), name);
@@ -53,7 +60,7 @@ public class NewsDaoTest {
 
     @Test
     public void changeText() throws Exception {
-        News news = newsDao.getById(3L);
+        News news = newsDao.getByName("This is the first News!");
         String Text = "Change text";
         News updatedNews = newsDao.changeText(news, Text);
         assertEquals(updatedNews.getText(), Text);
@@ -61,7 +68,8 @@ public class NewsDaoTest {
 
     @Test
     public void getCommentsByNewsId() throws Exception {
-        List<NewsComment> comments = newsDao.getCommentsByNewsId(3L);
+        News news = newsDao.getByName("This is the first News!");
+        List<NewsComment> comments = newsDao.getCommentsByNewsId(news.getId());
         List<String> textOfComments = comments.stream().map(NewsComment::getText).collect(toList());
         assertThat(textOfComments, hasSize(2));
         assertThat(textOfComments, contains("hello from test", "hi all"));

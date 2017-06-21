@@ -4,6 +4,7 @@ import by.itacademy.dao.interfaces.UserDao;
 import by.itacademy.entity.common.*;
 import by.itacademy.entity.other.Address;
 import com.querydsl.jpa.impl.JPAQuery;
+import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -68,19 +69,21 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
         return topics;
     }
 
-    //TODO: реализовать
     @Override
     public List<RoleOfUser> getAllRolles(Long primaryKey) {
-
-        QRoleOfUser role = new QRoleOfUser("myRole");
-        JPAQuery<RoleOfUser> query = new JPAQuery<>(getSessionFactory().getCurrentSession());
-
-        return null;
+        Session session = getSessionFactory().getCurrentSession();
+        User user = session.find(User.class, primaryKey);
+        List<RoleOfUser> roleOfUser = user.getRoleOfUser();
+        return roleOfUser;
     }
 
-    //TODO: спросить как реализовать. возможно ли в данном построении БД
     @Override
-    public List<Topic> getAllTopicsWhereUserTakePartInById(Long primaryKey) {
-        return null;
+    public User getByLogin(String login) {
+        Session session = getSessionFactory().getCurrentSession();
+        User user = session.createQuery("select u from User u where u.login=:userLogin", User.class)
+                .setParameter("userLogin", login)
+                .getResultList()
+                .get(0);
+        return user;
     }
 }

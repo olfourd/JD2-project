@@ -98,12 +98,9 @@ public final class DataImporterToH2 {
 
     private User saveUser(Session session, String login, String password, String nickName) {
         User user = new User(login, password, nickName);
-        List<RoleOfUser> roles = new ArrayList<>(4);
-        RoleOfUser roleUser = new RoleOfUser();
-        roleUser.setRole(UserRole.USER);
-        roles.add(roleUser);
-        roleUser.setRole(UserRole.ADMIN);
-        roles.add(roleUser);
+        List<RoleOfUser> roles = Arrays.asList(
+                new RoleOfUser(UserRole.USER),
+                new RoleOfUser(UserRole.ADMIN));
         user.setRoleOfUser(roles);
         user.setAddress(new Address("Belarus", "Minsk"));
         session.save(user);
@@ -122,7 +119,7 @@ public final class DataImporterToH2 {
         return heroAbility;
     }
 
-    public void deleteAllDateFromDatabase(SessionFactory sessionFactory){
+    public void deleteAllDateFromDatabase(SessionFactory sessionFactory) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
@@ -136,7 +133,6 @@ public final class DataImporterToH2 {
         session.createQuery("delete HeroTopic ");
         session.createQuery("delete Hero ");
         session.createQuery("delete User ");
-
 
 
     }

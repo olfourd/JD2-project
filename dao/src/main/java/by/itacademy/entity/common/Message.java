@@ -1,7 +1,6 @@
 package by.itacademy.entity.common;
 
 
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -13,7 +12,6 @@ import java.time.LocalDate;
 @Table(name = "message")
 @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
-@EqualsAndHashCode(callSuper = true)
 public class Message extends BaseEntity {
 
     public Message(String text, User user) {

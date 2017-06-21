@@ -1,5 +1,6 @@
 package by.itacademy.dao.interfaces;
 
+import by.itacademy.entity.common.Message;
 import by.itacademy.entity.common.RoleOfUser;
 import by.itacademy.entity.common.Topic;
 import by.itacademy.entity.common.User;
@@ -24,6 +25,6 @@ public interface UserDao extends BaseDao<User> {
 
     List<RoleOfUser> getAllRolles(Long primaryKey);
 
-    List<Topic> getAllTopicsWhereUserTakePartInById(Long primaryKey);
+    User getByLogin(String login);
 
 }
