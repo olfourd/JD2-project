@@ -1,7 +1,6 @@
 package by.itacademy.dao.classes;
 
 import by.itacademy.dao.interfaces.UserDao;
-import by.itacademy.entity.common.Message;
 import by.itacademy.entity.common.RoleOfUser;
 import by.itacademy.entity.common.Topic;
 import by.itacademy.entity.common.User;
@@ -9,22 +8,15 @@ import by.itacademy.entity.other.UserRole;
 import by.itacademy.util.DataImporterToH2;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 import static org.hamcrest.collection.IsIterableContainingInOrder.contains;
 import static org.junit.Assert.*;
 
-@RunWith(SpringRunner.class)
-@ContextConfiguration(locations = {"classpath:application-context.xml"})
-@Transactional
-public class UserDaoTest {
+
+public class UserDaoTest extends BaseDaoTest{
 
     @Autowired
     private UserDao userDao;
