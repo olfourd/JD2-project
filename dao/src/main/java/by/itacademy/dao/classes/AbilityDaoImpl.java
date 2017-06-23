@@ -30,7 +30,7 @@ public class AbilityDaoImpl extends BaseDaoImpl<HeroAbility> implements AbilityD
     public HeroAbility getByName(String name) {
         return getSessionFactory()
                 .getCurrentSession()
-                .createQuery("from HeroAbility where name=:abilityName", HeroAbility.class)
+                .createQuery("select a from HeroAbility a where a.name=:abilityName", HeroAbility.class)
                 .setParameter("abilityName", name)
                 .getSingleResult();
     }

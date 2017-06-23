@@ -3,7 +3,9 @@ package by.itacademy.dao.classes;
 import by.itacademy.dao.interfaces.HeroDao;
 import by.itacademy.entity.common.Hero;
 import by.itacademy.entity.common.HeroAbility;
+import by.itacademy.entity.common.QHeroAbility;
 import by.itacademy.entity.other.HeroRole;
+import com.querydsl.jpa.impl.JPAQuery;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -14,14 +16,15 @@ import java.util.List;
 @Transactional
 public class HeroDaoImpl extends BaseDaoImpl<Hero> implements HeroDao {
 
-
-    //TODO: не рабочий! реализовать
     @Override
     public List<HeroAbility> getAllAbilities(Long primaryKey) {
-        Session session = getSessionFactory().getCurrentSession();
-        Hero hero = session.find(Hero.class, primaryKey);
-        List<HeroAbility> abilities = hero.getAbilities();
-        return abilities;
+        QHeroAbility ability = new QHeroAbility("ability");
+        JPAQuery<HeroAbility> query = new JPAQuery<>(getSessionFactory().getCurrentSession());
+        return query.select(ability)
+                .from(ability)
+                .where(ability.hero.id.eq(primaryKey))
+                .fetchResults()
+                .getResults();
     }
 
     @Override

@@ -30,7 +30,7 @@ public class AbilityDaoTest extends BaseDaoTest {
 
     @Test
     public void changeName() {
-        HeroAbility ability = abilityDao.getByName("HeadButt");
+        HeroAbility ability = abilityDao.getByName("Headbutt");
         String newName = "QWERTY";
         HeroAbility updatedAbility = abilityDao.changeName(ability, newName);
         assertEquals(updatedAbility.getName(), newName);
@@ -38,7 +38,7 @@ public class AbilityDaoTest extends BaseDaoTest {
 
     @Test
     public void changePicture() {
-        HeroAbility ability = abilityDao.getByName("HeadButt");
+        HeroAbility ability = abilityDao.getByName("Headbutt");
         String newPassToPicture = "QWERTY";
         HeroAbility updatedAbility = abilityDao.changePicture(ability, newPassToPicture);
         assertEquals(updatedAbility.getPassToImg(), newPassToPicture);
@@ -46,7 +46,7 @@ public class AbilityDaoTest extends BaseDaoTest {
 
     @Test
     public void changeVideo() {
-        HeroAbility ability = abilityDao.getByName("HeadButt");
+        HeroAbility ability = abilityDao.getByName("Headbutt");
         String newPassToVideo = "QWERTY";
         HeroAbility updatedAbility = abilityDao.changeVideo(ability, newPassToVideo);
         assertEquals(updatedAbility.getPassToVideo(), newPassToVideo);
