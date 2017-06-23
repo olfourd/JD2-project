@@ -35,6 +35,11 @@ public class HeroAbility extends BaseEntity {
 
     @Getter
     @Setter
+    @Column(name = "pass_to_img")
+    private String passToImg;
+
+    @Getter
+    @Setter
     @Column(name = "pass_to_video")
     private String passToVideo;
 
