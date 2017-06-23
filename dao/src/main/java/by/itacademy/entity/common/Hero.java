@@ -1,7 +1,9 @@
 package by.itacademy.entity.common;
 
 import by.itacademy.entity.other.HeroRole;
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -10,9 +12,6 @@ import java.util.List;
 @Entity
 @Table(name = "hero")
 @NoArgsConstructor
-@ToString(exclude = {"abilities", "topics"})
-@EqualsAndHashCode(callSuper = true)
-
 public class Hero extends BaseEntity {
 
     public Hero(String name, HeroRole role) {
@@ -40,10 +39,4 @@ public class Hero extends BaseEntity {
     @Setter
     @OneToMany(mappedBy = "hero")
     private List<HeroAbility> abilities = new ArrayList<>();
-
-    @Getter
-    @Setter
-    @OneToMany(mappedBy = "hero")
-    private List<HeroTopic> topics = new ArrayList<>();
-
 }

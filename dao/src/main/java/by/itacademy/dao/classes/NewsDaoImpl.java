@@ -37,7 +37,6 @@ public class NewsDaoImpl extends BaseDaoImpl<News> implements NewsDao {
     public List<NewsComment> getCommentsByNewsId(Long primaryKey) {
         QNewsComment comment = new QNewsComment("comment");
         JPAQuery<NewsComment> query = new JPAQuery<>(getSessionFactory().getCurrentSession());
-
         return query.select(comment)
                 .from(comment)
                 .where(comment.news.id.eq(primaryKey))

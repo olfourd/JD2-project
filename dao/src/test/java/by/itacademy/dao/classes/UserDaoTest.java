@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
+import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.collection.IsIterableContainingInOrder.contains;
 import static org.junit.Assert.*;
 
@@ -122,10 +123,11 @@ public class UserDaoTest extends BaseDaoTest{
 
     @Test
     public void getCreatedTopicsById() throws Exception {
-        User user = userDao.getByLogin("Qwerty");
+        User user = userDao.getByLogin("DeGriz");
         List<Topic> topics = userDao.getCreatedTopicsById(user.getId());
+        assertThat(topics, hasSize(1));
         List<String> namesOfTopics = topics.stream().map(Topic::getName).collect(toList());
-        assertThat(namesOfTopics, contains("1st topic Alistar", "2nd topic Alistar"));
+        assertThat(namesOfTopics, contains("simple topic"));
     }
 
     @Test

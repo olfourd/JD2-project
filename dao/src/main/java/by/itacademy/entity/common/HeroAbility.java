@@ -8,7 +8,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "ability")
 @NoArgsConstructor
-@EqualsAndHashCode(callSuper = true)
 public class HeroAbility extends BaseEntity {
 
     public HeroAbility(String name, KeyAbility keyAbility, Hero hero) {
@@ -31,7 +30,7 @@ public class HeroAbility extends BaseEntity {
     @Getter
     @Setter
     @ManyToOne
-    @JoinColumn(name = "HERO_ID", nullable = false)
+    @JoinColumn(name = "HERO_ID")
     private Hero hero;
 
     @Getter

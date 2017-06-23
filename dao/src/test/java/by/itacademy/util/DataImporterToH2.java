@@ -6,8 +6,6 @@ import by.itacademy.entity.other.HeroRole;
 import by.itacademy.entity.other.KeyAbility;
 import by.itacademy.entity.other.UserRole;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
@@ -22,24 +20,11 @@ public final class DataImporterToH2 {
         User userDeGriz = saveUser(session, "DeGriz", "Qwerty", "AmazingDeGriz");
 
         Hero alistar = saveHero(session, "Alistar", HeroRole.TANK);
-        saveAbility(session, "Triumphant Roar", KeyAbility.PASSIVE, alistar);
-        saveAbility(session, "Pulverize", KeyAbility.Q, alistar);
-        saveAbility(session, "Headbutt", KeyAbility.W, alistar);
-        saveAbility(session, "Trample", KeyAbility.W, alistar);
-        saveAbility(session, "Unbreakable Will", KeyAbility.R, alistar);
-        HeroTopic heroTopic = saveHeroTopic(session, "1st topic Alistar",
-                "Hello from first topic Alistar", userQwerty, alistar);
-        saveHeroTopic(session, "2nd topic Alistar", "Hello from second topic Alistar",
-                userQwerty, alistar);
-        saveHeroTopicComment(session, "Hi all, I'm first", userQwerty, heroTopic);
-        saveHeroTopicComment(session, "second =(", userQwerty, heroTopic);
-
-        Hero braum = saveHero(session, "Braum", HeroRole.SUPPORT);
-        saveAbility(session, "Concussive Blows", KeyAbility.PASSIVE, braum);
-        saveAbility(session, "Winter's Bite", KeyAbility.Q, braum);
-        saveAbility(session, "Stand Behind Me", KeyAbility.W, braum);
-        saveAbility(session, "Unbreakable", KeyAbility.E, braum);
-        saveAbility(session, "Glacial Fissure", KeyAbility.R, braum);
+        HeroAbility heroAbility = saveAbility(session, "Triumphant Roar", KeyAbility.PASSIVE, alistar);
+        HeroAbility heroAbility1 = saveAbility(session, "Pulverize", KeyAbility.Q, alistar);
+        HeroAbility heroAbility2 = saveAbility(session, "Headbutt", KeyAbility.W, alistar);
+        HeroAbility heroAbility3 = saveAbility(session, "Trample", KeyAbility.W, alistar);
+        HeroAbility heroAbility4 = saveAbility(session, "Unbreakable Will", KeyAbility.R, alistar);
 
         News news = saveNews(session, "This is the first News!", "hi", userOlfourd);
         saveNewsCommentTest(session, "hello from test", userOlfourd, news);
@@ -78,22 +63,10 @@ public final class DataImporterToH2 {
         return comment;
     }
 
-    private HeroTopicMessage saveHeroTopicComment(Session session, String text, User user, HeroTopic heroTopic) {
-        HeroTopicMessage comment = new HeroTopicMessage(text, user, heroTopic);
-        session.save(comment);
-        return comment;
-    }
-
     private News saveNews(Session session, String name, String text, User user) {
         News news = new News(name, text, user);
         session.save(news);
         return news;
-    }
-
-    private HeroTopic saveHeroTopic(Session session, String name, String text, User user, Hero hero) {
-        HeroTopic heroTopic = new HeroTopic(name, text, user, hero);
-        session.save(heroTopic);
-        return heroTopic;
     }
 
     private User saveUser(Session session, String login, String password, String nickName) {
@@ -117,23 +90,5 @@ public final class DataImporterToH2 {
         HeroAbility heroAbility = new HeroAbility(name, keyAbility, hero);
         session.save(heroAbility);
         return heroAbility;
-    }
-
-    public void deleteAllDateFromDatabase(SessionFactory sessionFactory) {
-        Session session = sessionFactory.openSession();
-        Transaction transaction = session.beginTransaction();
-
-        session.createQuery("delete ForumPost");
-        session.createQuery("delete ForumTopicSimple ");
-        session.createQuery("delete ForumTopicGlobal ");
-        session.createQuery("delete NewsComment ");
-        session.createQuery("delete News ");
-        session.createQuery("delete HeroAbility ");
-        session.createQuery("delete HeroTopicMessage ");
-        session.createQuery("delete HeroTopic ");
-        session.createQuery("delete Hero ");
-        session.createQuery("delete User ");
-
-
     }
 }
