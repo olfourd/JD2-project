@@ -31,6 +31,8 @@ public final class DataImporterToH2 {
         saveNewsCommentTest(session, "hi all", userOlfourd, news);
 
         ForumTopicGlobal topicGlobal = saveGlobalTopic(session, "global topic");
+        ForumTopicGlobal forumTopicGlobal = saveGlobalTopic(session, "global topic qwerty");
+
         ForumTopicSimple topicSimple = saveSimpleTopic(session, "simple topic",
                 "what is it?", userDeGriz, topicGlobal);
         saveForumPost(session, "this is comment", userDeGriz, topicSimple);

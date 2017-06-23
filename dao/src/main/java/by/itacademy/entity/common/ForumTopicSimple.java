@@ -12,8 +12,6 @@ import java.util.List;
 @Table(name = "simple_forum_topic")
 @PrimaryKeyJoinColumn(name = "TOPIC_ID")
 @ToString(exclude = {"containedPosts"}, callSuper = true)
-@EqualsAndHashCode(callSuper = true)
-
 public class ForumTopicSimple extends Topic {
 
     public ForumTopicSimple(String name, String text, User user, ForumTopicGlobal theme) {
