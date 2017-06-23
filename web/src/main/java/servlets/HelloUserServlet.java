@@ -11,9 +11,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Created by цифра on 27.05.2017.
- */
 @WebServlet("/")
 public class HelloUserServlet extends HttpServlet {
     @Override
@@ -31,4 +28,5 @@ public class HelloUserServlet extends HttpServlet {
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/pages/HelloUser.jsp");
         dispatcher.forward(req,resp);
     }
+
 }

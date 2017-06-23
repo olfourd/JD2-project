@@ -8,9 +8,6 @@ import lombok.NoArgsConstructor;
 public class UserSecvice {
 
     public UserDto getUser(long id){
-//        User user = UserDaoImplAAAAA.getInstance().getById(id);
-//
-//        UserDto result = new UserDto(user.getName());
         return null;
     }
 }

@@ -2,7 +2,7 @@ package by.itacademy.dao.interfaces;
 
 import by.itacademy.entity.common.HeroAbility;
 
-public interface AbilityDao extends BaseDao<HeroAbility> {
+public interface HeroAbilityDao extends BaseDao<HeroAbility> {
     HeroAbility changeName(HeroAbility ability, String name);
 
     HeroAbility changePicture(HeroAbility ability, String src);

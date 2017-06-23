@@ -1,13 +1,13 @@
 package by.itacademy.dao.classes;
 
-import by.itacademy.dao.interfaces.AbilityDao;
+import by.itacademy.dao.interfaces.HeroAbilityDao;
 import by.itacademy.entity.common.HeroAbility;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Transactional
-public class AbilityDaoImpl extends BaseDaoImpl<HeroAbility> implements AbilityDao{
+public class HeroAbilityDaoImpl extends BaseDaoImpl<HeroAbility> implements HeroAbilityDao {
     @Override
     public HeroAbility changeName(HeroAbility ability, String name) {
         ability.setName(name);
