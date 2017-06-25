@@ -1,11 +1,11 @@
 package by.itacademy.dao.classes;
 
-import by.itacademy.dao.interfaces.UserDao;
-import by.itacademy.entity.common.RoleOfUser;
-import by.itacademy.entity.common.Topic;
-import by.itacademy.entity.common.User;
+import by.itacademy.dao.UserDao;
+import by.itacademy.entity.RoleOfUser;
+import by.itacademy.entity.Topic;
+import by.itacademy.entity.User;
 import by.itacademy.entity.other.UserRole;
-import by.itacademy.util.DataImporterToH2;
+import by.itacademy.util.TestDataImporte;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ public class UserDaoTest extends BaseDaoTest{
     @Autowired
     private UserDao userDao;
     @Autowired
-    private DataImporterToH2 dataImport;
+    private TestDataImporte dataImport;
 
     @Before
     public void init() {

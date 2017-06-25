@@ -1,7 +1,6 @@
 package servlets;
 
-import by.itacademy.dto.UserDto;
-import by.itacademy.service.UserSecvice;
+import by.itacademy.entity.User;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,6 +12,7 @@ import java.io.IOException;
 
 @WebServlet("/")
 public class HelloUserServlet extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/http;charset=utf-8");
@@ -23,8 +23,8 @@ public class HelloUserServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Long requestedId = Long.valueOf(req.getParameter("userId"));
-        UserDto user = new UserSecvice().getUser(requestedId);
-        req.setAttribute("user", user);
+//        User user = userService.getById(requestedId);
+//        req.setAttribute("user", user);
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/pages/HelloUser.jsp");
         dispatcher.forward(req,resp);
     }

@@ -1,14 +1,13 @@
-package by.itacademy.dao.classes;
+package by.itacademy.service.common;
 
-import by.itacademy.config.ConfigDaoTest;
+import by.itacademy.config.ConfigService;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 @RunWith(SpringRunner.class)
-@ContextConfiguration(classes = ConfigDaoTest.class)
 @Transactional
-public class BaseDaoTest {
-
+@ContextConfiguration(classes = ConfigService.class)
+public class BaseServiseTest {
 }

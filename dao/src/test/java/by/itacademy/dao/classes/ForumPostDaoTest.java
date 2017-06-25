@@ -1,8 +1,8 @@
 package by.itacademy.dao.classes;
 
-import by.itacademy.dao.interfaces.ForumPostDao;
-import by.itacademy.entity.common.ForumPost;
-import by.itacademy.util.DataImporterToH2;
+import by.itacademy.dao.ForumPostDao;
+import by.itacademy.entity.ForumPost;
+import by.itacademy.util.TestDataImporte;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,7 @@ public class ForumPostDaoTest extends BaseDaoTest {
     @Autowired
     private ForumPostDao forumPostDao;
     @Autowired
-    private DataImporterToH2 importerToH2;
+    private TestDataImporte importerToH2;
 
     @Before
     public void init() {

@@ -1,9 +1,9 @@
 package by.itacademy.dao.classes;
 
-import by.itacademy.dao.interfaces.ForumTopicGlobalDao;
-import by.itacademy.entity.common.ForumTopicGlobal;
-import by.itacademy.entity.common.ForumTopicSimple;
-import by.itacademy.util.DataImporterToH2;
+import by.itacademy.dao.ForumTopicGlobalDao;
+import by.itacademy.entity.ForumTopicGlobal;
+import by.itacademy.entity.ForumTopicSimple;
+import by.itacademy.util.TestDataImporte;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +21,7 @@ public class ForumTopicGlobalDaoTest extends BaseDaoTest {
     @Autowired
     private ForumTopicGlobalDao topicGlobalDao;
     @Autowired
-    private DataImporterToH2 importerToH2;
+    private TestDataImporte importerToH2;
 
     @Before
     public void init() {

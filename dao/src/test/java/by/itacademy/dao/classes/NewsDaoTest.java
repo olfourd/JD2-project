@@ -1,9 +1,9 @@
 package by.itacademy.dao.classes;
 
-import by.itacademy.dao.interfaces.NewsDao;
-import by.itacademy.entity.common.News;
-import by.itacademy.entity.common.NewsComment;
-import by.itacademy.util.DataImporterToH2;
+import by.itacademy.dao.NewsDao;
+import by.itacademy.entity.News;
+import by.itacademy.entity.NewsComment;
+import by.itacademy.util.TestDataImporte;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +20,7 @@ public class NewsDaoTest extends BaseDaoTest{
     @Autowired
     private NewsDao newsDao;
     @Autowired
-    private DataImporterToH2 dataImport;
+    private TestDataImporte dataImport;
 
     @Before
     public void init() throws Exception {

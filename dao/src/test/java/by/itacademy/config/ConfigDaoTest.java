@@ -1,8 +1,7 @@
 package by.itacademy.config;
 
-import by.itacademy.util.DataImporterToH2;
+import by.itacademy.util.TestDataImporte;
 import org.h2.jdbcx.JdbcDataSource;
-import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,7 +33,7 @@ public class ConfigDaoTest {
     }
 
     @Bean
-    public DataImporterToH2 importerToH2(){
-        return new DataImporterToH2();
+    public TestDataImporte importerToH2(){
+        return new TestDataImporte();
     }
 }

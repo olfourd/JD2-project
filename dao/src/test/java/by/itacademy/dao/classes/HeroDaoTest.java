@@ -1,10 +1,10 @@
 package by.itacademy.dao.classes;
 
-import by.itacademy.dao.interfaces.HeroDao;
-import by.itacademy.entity.common.Hero;
-import by.itacademy.entity.common.HeroAbility;
+import by.itacademy.dao.HeroDao;
+import by.itacademy.entity.Hero;
+import by.itacademy.entity.HeroAbility;
 import by.itacademy.entity.other.HeroRole;
-import by.itacademy.util.DataImporterToH2;
+import by.itacademy.util.TestDataImporte;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,7 @@ public class HeroDaoTest extends BaseDaoTest {
     @Autowired
     private HeroDao heroDao;
     @Autowired
-    private DataImporterToH2 importerToH2;
+    private TestDataImporte importerToH2;
 
     @Before
     public void init() throws Exception {
