@@ -1,5 +1,6 @@
 package by.itacademy.service.common;
 
+import by.itacademy.dao.common.BaseDao;
 import by.itacademy.dao.common.BaseDaoImpl;
 import by.itacademy.entity.common.BaseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Transactional
-public abstract class BaseServiceImpl<T extends BaseEntity, K extends BaseDaoImpl> implements BaseService<T> {
+public abstract class BaseServiceImpl<T extends BaseEntity, K extends BaseDao<T>> implements BaseService<T> {
 
     private K repository;
 

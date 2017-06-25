@@ -6,7 +6,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-@Transactional
 public class NewsCommentDaoImpl extends BaseDaoImpl<NewsComment> implements NewsCommentDao {
 
     @Override

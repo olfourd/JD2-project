@@ -6,9 +6,9 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.GenericTypeResolver;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-
 
 public abstract class BaseDaoImpl<T extends BaseEntity> implements BaseDao<T> {
 

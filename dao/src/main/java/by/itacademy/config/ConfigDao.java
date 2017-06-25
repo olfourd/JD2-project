@@ -9,13 +9,15 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 import java.util.Properties;
 
 @Configuration
 @ComponentScan(basePackages = {"by.itacademy.dao"})
-@PropertySource("classpath:database.properties.")
+@PropertySource("classpath:database.properties")
+@EnableTransactionManagement
 public class ConfigDao {
 
     @Value("${jdbc.url}")
@@ -72,10 +74,5 @@ public class ConfigDao {
         return properties;
     }
 
-    @Bean
-    public HibernateTransactionManager transactionManager(SessionFactory sessionFactory){
-        HibernateTransactionManager transactionManager = new HibernateTransactionManager();
-        transactionManager.setSessionFactory(sessionFactory);
-        return transactionManager;
-    }
+
 }

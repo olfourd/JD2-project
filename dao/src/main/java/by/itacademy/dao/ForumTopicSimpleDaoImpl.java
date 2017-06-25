@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Repository
-@Transactional
 public class ForumTopicSimpleDaoImpl extends BaseDaoImpl<ForumTopicSimple> implements ForumTopicSimpleDao {
     @Override
     public ForumTopicSimple getByName(String name) {

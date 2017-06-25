@@ -52,7 +52,8 @@ public class UserServiceImpl extends BaseServiceImpl<User, UserDaoImpl> implemen
 
     @Override
     public List<RoleOfUser> getAllRolles(Long primaryKey) {
-        return getRepository().getAllRolles(primaryKey);
+
+        return getRepository().getById(primaryKey).getRoleOfUser();
     }
 
     @Override

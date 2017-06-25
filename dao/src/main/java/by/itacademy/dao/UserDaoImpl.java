@@ -10,6 +10,7 @@ import by.itacademy.entity.other.Address;
 import com.querydsl.jpa.impl.JPAQuery;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 

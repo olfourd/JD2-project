@@ -11,7 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Repository
-@Transactional
 public class ForumTopicGlobalDaoImpl extends BaseDaoImpl<ForumTopicGlobal> implements ForumTopicGlobalDao {
     @Override
     public ForumTopicGlobal getByName(String name) {
