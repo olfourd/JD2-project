@@ -20,20 +20,12 @@ public class User extends BaseEntity {
         this.nickName = nickName;
     }
 
-    public User(String login, String password, String nickName, UserRole role) {
-        this.login = login;
-        this.password = password;
-        this.nickName = nickName;
-        this.roleOfUser.add(new RoleOfUser(role));
-    }
-
-    //УСТАНОВИТЬ УНИКАЛЬНОСТЬ?!
-    @Column(name = "login", nullable = false, unique = true)
+    @Column(name = "login")
     @Getter
     @Setter
     private String login;
 
-    @Column(name = "password", nullable = false)
+    @Column(name = "password")
     @Getter
     @Setter
     private String password;
@@ -43,8 +35,7 @@ public class User extends BaseEntity {
     @Setter
     private String name;
 
-    //УСТАНОВИТЬ УНИКАЛЬНОСТЬ?!
-    @Column(name = "nick_name", nullable = false, unique = true)
+    @Column(name = "nick_name")
     @Getter
     @Setter
     private String nickName;

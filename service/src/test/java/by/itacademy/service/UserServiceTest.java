@@ -24,7 +24,7 @@ public class UserServiceTest extends BaseServiseTest{
     @Test
     public void createDelete() throws Exception {
         String name = "Asdfg";
-        User user = new User(name, name, name, UserRole.USER);
+        User user = new User(name, name, name);
         User savedUser = userService.create(user);
         assertEquals(savedUser.getLogin(), name);
 
