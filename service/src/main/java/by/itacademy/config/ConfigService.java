@@ -22,8 +22,4 @@ public class ConfigService {
         return transactionManager;
     }
 
-    @Bean
-    public PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder();
-    }
 }

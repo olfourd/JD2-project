@@ -31,6 +31,7 @@ public class UserServiceImpl extends BaseServiceImpl<User, UserDaoImpl> implemen
     private final UserDaoImpl userDao;
     private final PasswordEncoder passwordEncoder;
 
+
     @Autowired
     public UserServiceImpl(RoleDaoImpl roleDao, UserDaoImpl userDao, PasswordEncoder passwordEncoder) {
         this.roleDao = roleDao;
@@ -40,9 +41,8 @@ public class UserServiceImpl extends BaseServiceImpl<User, UserDaoImpl> implemen
 
     @Override
     public User create(User entity) {
-        String encode = passwordEncoder.encode(entity.getPassword());
-        entity.setPassword(encode);
         entity.setRoleOfUser(Arrays.asList(roleDao.getUser()));
+        entity.setPassword(passwordEncoder.encode(entity.getPassword()));
         return super.create(entity);
     }
 
