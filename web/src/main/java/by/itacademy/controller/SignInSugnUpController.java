@@ -1,14 +1,21 @@
 package by.itacademy.controller;
 
 import by.itacademy.entity.User;
+import by.itacademy.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
-public class SignInSignUpController {
+public class SignInSugnUpController {
+    private final UserService userService;
+
+    @Autowired
+    public SignInSugnUpController(UserService userService) {
+        this.userService = userService;
+    }
 
     @ModelAttribute("user")
     public User user(){
@@ -17,7 +24,7 @@ public class SignInSignUpController {
 
     @GetMapping(path = "/signin")
     public String getSignInPage(){
-        return "signin";
+       return "signin";
     }
 
     @GetMapping(path = "/signup")
@@ -26,8 +33,8 @@ public class SignInSignUpController {
     }
 
     @PostMapping("/signup")
-    public String saveUser(@RequestBody User user){
-        System.out.println(user);
+    public String saveUser(User user){
+        userService.create(user);
         return "signup";
     }
 

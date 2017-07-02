@@ -21,14 +21,12 @@ public class RoleOfUser extends BaseEntity {
 
     @Getter
     @Setter
+    @Column(name = "role")
     @Enumerated(EnumType.STRING)
     private UserRole role;
 
     @Getter
     @Setter
-    @ManyToMany
-    @JoinTable(name = "user_role",
-            joinColumns = @JoinColumn(name = "USER_ID"),
-            inverseJoinColumns = @JoinColumn(name = "ROLE_ID"))
+    @ManyToMany(mappedBy = "roleOfUser")
     List<User> users = new ArrayList<>(4);
 }

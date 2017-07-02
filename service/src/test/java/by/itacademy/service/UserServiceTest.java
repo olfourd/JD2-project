@@ -18,7 +18,7 @@ public class UserServiceTest extends BaseServiseTest{
     public void getByLogin() throws Exception {
         String login = "Olfourd";
         User user = userService.getByLogin(login);
-        assertEquals(user.getLogin(), login);
+        assertEquals(user.getName(), login);
     }
 
     @Test
@@ -26,7 +26,7 @@ public class UserServiceTest extends BaseServiseTest{
         String name = "Asdfg";
         User user = new User(name, name, name);
         User savedUser = userService.create(user);
-        assertEquals(savedUser.getLogin(), name);
+        assertEquals(savedUser.getName(), name);
 
         assertTrue(userService.delete(savedUser));
     }

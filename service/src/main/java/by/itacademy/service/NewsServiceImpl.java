@@ -3,10 +3,12 @@ package by.itacademy.service;
 import by.itacademy.dao.NewsDaoImpl;
 import by.itacademy.entity.News;
 import by.itacademy.entity.NewsComment;
+import by.itacademy.entity.User;
 import by.itacademy.service.common.BaseServiceImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -29,11 +31,27 @@ public class NewsServiceImpl extends BaseServiceImpl<News, NewsDaoImpl> implemen
 
     @Override
     public List<NewsComment> getCommentsByNewsId(Long primaryKey) {
-        return getRepository().getCommentsByNewsId(primaryKey);
+        List<NewsComment> comments = getRepository().getCommentsByNewsId(primaryKey);
+        Collections.reverse(comments);
+        return comments;
     }
 
     @Override
     public News getByName(String name) {
         return getRepository().getByName(name);
+    }
+
+    @Override
+    public News getById(Long primaryKey) {
+        News news = super.getById(primaryKey);
+        User user = news.getUser();
+        return news;
+    }
+
+    @Override
+    public List<News> getAll() {
+        List<News> allNews = super.getAll();
+        Collections.reverse(allNews);
+        return allNews;
     }
 }

@@ -11,12 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @ComponentScan(basePackages = {"by.itacademy.controller"})
 @EnableWebMvc
 @Import(value = {LocalizationConfig.class, ThymeleafConfig.class})
-public class WebConfig extends WebMvcConfigurerAdapter {
+public class WebConfig{
 
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry
-                .addResourceHandler("/resources/**")
-                .addResourceLocations("/resources/");
-    }
+
 }

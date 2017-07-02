@@ -4,6 +4,7 @@ import by.itacademy.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class UserConroller {
@@ -20,10 +21,8 @@ public class UserConroller {
         return "index";
     }
 
-//    @PostMapping(path = "/user")
-//    public String getUser(@RequestParam Long id, Model model){
-//        User user = userService.getById(id);
-//        model.addAttribute(user);
-//        return "user";
-//    }
+    @GetMapping(path = "/user")
+    public String getUser(){
+        return "user";
+    }
 }

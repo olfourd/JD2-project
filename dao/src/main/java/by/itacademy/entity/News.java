@@ -2,10 +2,7 @@ package by.itacademy.entity;
 
 import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 

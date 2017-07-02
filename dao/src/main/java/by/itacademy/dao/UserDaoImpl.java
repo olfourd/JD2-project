@@ -1,17 +1,16 @@
 package by.itacademy.dao;
 
 import by.itacademy.dao.common.BaseDaoImpl;
-import by.itacademy.entity.QTopic;
-import by.itacademy.entity.RoleOfUser;
-import by.itacademy.entity.Topic;
-import by.itacademy.entity.User;
+import by.itacademy.entity.*;
 import by.itacademy.entity.common.*;
 import by.itacademy.entity.other.Address;
+import by.itacademy.entity.other.UserRole;
 import com.querydsl.jpa.impl.JPAQuery;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Repository
@@ -80,10 +79,9 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 
     @Override
     public User getByLogin(String login) {
-        Session session = getSessionFactory().getCurrentSession();
-        return session.createQuery("select u from User u where u.login=:userLogin", User.class)
-                .setParameter("userLogin", login)
-                .getResultList()
-                .get(0);
+        QUser user = new QUser("user");
+        JPAQuery<User> query = new JPAQuery<>(getSessionFactory().getCurrentSession());
+        return query.select(user).from(user).where(user.name.eq(login)).fetchOne();
+
     }
 }

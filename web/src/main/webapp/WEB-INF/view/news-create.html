@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +12,7 @@
     <link rel="stylesheet" href="/resources/css/font-awesome.min.css">
     <link rel="stylesheet" href="/resources/css/bootstrap-theme.css" media="screen">
     <link rel="stylesheet" href="/resources/css/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="/resources/js/html5shiv.js"></script>
     <script src="/resources/js/respond.min.js"></script>
 </head>
@@ -51,23 +53,24 @@
 <!-- container -->
 <div class="container">
 
-    <!-- Sidebar -->
-    <aside class="col-md-4 sidebar sidebar-right">
-        <a  class="btn btn-danger top" href="/news/create">Create news</a>
-    </aside>
-    <!-- /Sidebar -->
-
-    <div class="row">
-        <!-- Article main content -->
-        <article class="col-md-8 maincontent" th:each="news : ${allNews}">
-            <h1 class="page-title" th:text="${news.getName()}">Some name</h1>
-            <img width="650" height="400" th:src="${news.getSrcPicture()}"></a>
-            <p th:text="${news.getText().substring(0, 210)}">TextMore </p>
-            <a th:href="@{/news/simple(id=${news.id})}">more</a>
-        </article>
-        <!-- /Article -->
+    <div class="form-group">
+        <form class="form-horizontal" method="post" th:action="@{/news/create}" th:object="${news}">
+<!--TODO: реализовать upload картинок-->
+            <label>Select picture</label>
+            <br>
+            <button>Select...</button>
+            <br>
+            <label>Name:</label>
+            <br>
+            <input th:field="*{name}" class="form-control">
+            <br>
+            <label>Text:</label>
+            <br>
+            <textarea th:field="*{text}" class="form-control" rows="8"></textarea>
+            <br>
+            <button class="btn btn-action btn-lg" type="submit">Save</button>
+        </form>
     </div>
-
 
 </div>    <!-- /container -->
 
@@ -117,8 +120,8 @@
 
 </footer>
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="/resources/js/headroom.min.js"></script>
 <script src="/resources/js/jQuery.headroom.min.js"></script>
 <script src="/resources/js/template.js"></script>

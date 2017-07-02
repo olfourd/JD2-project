@@ -33,7 +33,7 @@ public class UserDaoTest extends BaseDaoTest{
     public void getByLogin() {
         String login = "Qwerty";
         User user = userDao.getByLogin(login);
-        assertEquals(user.getLogin(), login);
+        assertEquals(user.getName(), login);
     }
 
     @Test
@@ -41,13 +41,13 @@ public class UserDaoTest extends BaseDaoTest{
         String name = "Hamlo";
         User user = new User(name, name, name);
         User savedUser = userDao.save(user);
-        assertEquals(savedUser.getLogin(), name);
+        assertEquals(savedUser.getName(), name);
         assertEquals(savedUser.getPassword(), name);
         assertEquals(savedUser.getNickName(), name);
 
         long id = savedUser.getId();
         User getUserById = userDao.getById(id);
-        assertEquals(savedUser.getLogin(), getUserById.getLogin());
+        assertEquals(savedUser.getName(), getUserById.getName());
         assertEquals(savedUser.getPassword(), getUserById.getPassword());
         assertEquals(savedUser.getNickName(), getUserById.getNickName());
     }
@@ -68,7 +68,7 @@ public class UserDaoTest extends BaseDaoTest{
     @Test
     public void getAll() throws Exception {
         List<User> result = userDao.getAll();
-        List<String> loginsOfUsers = result.stream().map(User::getLogin).collect(toList());
+        List<String> loginsOfUsers = result.stream().map(User::getName).collect(toList());
         assertThat(loginsOfUsers, contains("Qwerty", "Olfourd", "DeGriz"));
     }
 
