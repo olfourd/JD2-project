@@ -49,69 +49,13 @@
 <header id="head" class="secondary"></header>
 
 <!-- container -->
-<div class="container">
-
-    <div class="row">
-
-        <aside class="col-md-4 sidebar sidebar-left">
-
-            <div class="row widget">
-                <div class="col-xs-12">
-                    <img th:src="${user.getSrcAvatar()}">
-                    <br>
-                    <a href="/">change</a>
-                    <br>
-                    <a href="/">change password</a>
-                </div>
-            </div>
-
-        </aside>
-
-        <article class="col-md-8 maincontent">
-            <header class="page-header">
-                <h1 class="page-title" th:text="${user.getName()}">Name</h1>
-            </header>
-            <p>Personal information</p>
-            <div>
-                <p th:text="${user.getName()}"></p>
-                <br>
-                <p>Personal information</p>
-                <br>
-                <p th:text="${user.getFirstName()}">first name</p>
-                <a href="/">change first name</a>
-                <br>
-                <p th:text="${user.getMail()}">mail</p>
-                <a href="/">change mail</a>
-                <br>
-                <p th:text="${user.getAddress().getCountry()}">Country</p>
-                <a href="/">change country</a>
-                <br>
-                <p th:text="${user.getAddress().getCity()}">City</p>
-                <a href="/">change city</a>
-            </div>
-        </article>
-
-        <div>
-            <h2 class="page-title">Created topics</h2>
-            <article th:each="topic : ${topics}">
-                <p th:text="${topic.getName()}">name</p>
-            </article>
+<div class="container-fluid row row-eq-height" >
+        <div class="col-sm-3 col-md-1" th:each="hero, iterationStatus : ${heroes}">
+                <img th:src="${hero.getPassToPicture()}" th:href="@{/hero(id=${hero.getId()})}">
+            <br>
+                <a th:href="@{/hero(id=${hero.getId()})}" th:text="${hero.getName()}"></a>
         </div>
-
-    </div>
-
-    ?language=en_US
-    <br>
-    Language : <a th:href="@{/user(language=en_US)}">English</a>|<a th:href="@{/user(language=ru_RU)}">Rus</a>
-    <br>
-    <h1></h1>
-    <p th:text="#{header.news}">News</p>
-
-    <form th:action="@{/logout}" method="post">
-        <button type="submit">LOGOUT</button>
-    </form>
-</div>    <!-- /container -->
-
+</div>
 
 <footer id="footer" class="top-space">
 
@@ -158,8 +102,6 @@
 
 </footer>
 
-
-<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <script src="/resources/js/headroom.min.js"></script>

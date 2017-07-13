@@ -42,6 +42,13 @@ public class NewsServiceImpl extends BaseServiceImpl<News, NewsDaoImpl> implemen
     }
 
     @Override
+    public List<News> getNewsFromPage(int page) {
+        List<News> newsFromPage = getRepository().getNewsFromPage(page);
+        Collections.reverse(newsFromPage);
+        return newsFromPage;
+    }
+
+    @Override
     public News getById(Long primaryKey) {
         News news = super.getById(primaryKey);
         User user = news.getUser();

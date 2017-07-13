@@ -18,7 +18,7 @@ public class LocalizationConfig extends WebMvcConfigurerAdapter {
     @Bean
     public MessageSource messageSource(){
         ResourceBundleMessageSource resourceBundle = new ResourceBundleMessageSource();
-        resourceBundle.setBasename("translation");
+        resourceBundle.setBasename("translations");
         resourceBundle.setDefaultEncoding("UTF-8");
         return resourceBundle;
     }

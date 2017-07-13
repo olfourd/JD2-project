@@ -2,15 +2,17 @@ package by.itacademy.config;
 
 import by.itacademy.util.TestDataImporte;
 import org.h2.jdbcx.JdbcDataSource;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.*;
+import org.springframework.orm.hibernate5.HibernateTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
 @Configuration
 @Import(ConfigDao.class)
+@EnableTransactionManagement
 public class ConfigDaoTest {
 
     @Value("${jdbc.url}")
@@ -36,4 +38,12 @@ public class ConfigDaoTest {
     public TestDataImporte importerToH2(){
         return new TestDataImporte();
     }
+
+    @Bean
+    public HibernateTransactionManager transactionManager(SessionFactory sessionFactory){
+        HibernateTransactionManager transactionManager = new HibernateTransactionManager();
+        transactionManager.setSessionFactory(sessionFactory);
+        return transactionManager;
+    }
 }
+

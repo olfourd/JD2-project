@@ -51,4 +51,15 @@ public class NewsDaoImpl extends BaseDaoImpl<News> implements NewsDao {
                 .getResultList()
                 .get(0);
     }
+
+    @Override
+    public List<News> getNewsFromPage(int page) {
+        Session session = getSessionFactory().getCurrentSession();
+        int maxResult = 3;
+        int firstResult = (page - 1) * maxResult;
+        return session.createQuery("from News", News.class)
+                .setFirstResult(firstResult)
+                .setMaxResults(maxResult)
+                .getResultList();
+    }
 }

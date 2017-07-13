@@ -16,4 +16,7 @@ public interface NewsService extends BaseService<News> {
     List<NewsComment> getCommentsByNewsId(Long primaryKey);
 
     News getByName(String name);
+
+    List<News> getNewsFromPage(int page);
+
 }

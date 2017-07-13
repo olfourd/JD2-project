@@ -1,5 +1,6 @@
 package by.itacademy.controller;
 
+import by.itacademy.entity.Topic;
 import by.itacademy.entity.User;
 import by.itacademy.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 @Controller
 public class UserConroller {
@@ -32,7 +34,9 @@ public class UserConroller {
     @GetMapping(path = "/user")
     public String getUser(Model model){
         User user = userService.getByLogin(SecurityContextHolder.getContext().getAuthentication().getName());
+        List<Topic> topics = userService.getCreatedTopicsById(user.getId());
         model.addAttribute("user", user);
+        model.addAttribute("topics", topics);
         return "user";
     }
 }

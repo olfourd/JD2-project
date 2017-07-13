@@ -17,6 +17,9 @@
 }
 
 
+.flex-container {
+	display: inline-flex;
+}
 /* Autohide navbar */
 .slideUp { top:-100px; }
 .headroom { -webkit-transition: all 0.4s ease-out; -moz-transition: all 0.4s ease-out; -o-transition: all 0.4s ease-out; transition: all 0.4s ease-out; }
@@ -45,6 +48,7 @@ ul.list-spaces li{ margin-bottom:10px; }
 .container-full { margin: 0 auto; width: 100%; }
 .top-space { margin-top: 60px; }
 .top-margin { margin-top:20px; }
+
 
 img { max-width:100%; }
 img.pull-right { margin-left: 10px; }
@@ -79,4 +83,4 @@ img.pull-left { margin-right: 10px; }
 		.footer2 p { margin: 0; }
 
 	.widget-simplenav { margin-left:-5px; }		
-	.widget-simplenav a{ margin:0 5px; }		
+	.widget-simplenav a{ margin:0 5px; }

@@ -15,9 +15,9 @@ public final class TestDataImporte {
 
     public void importTestData(Session session) {
 
-        User userQwerty = saveUser(session, "Qwerty", "Qwerty", "AmazingQwerty");
-        User userOlfourd = saveUser(session, "Olfourd", "Qwerty", "AmazingOlfourd");
-        User userDeGriz = saveUser(session, "DeGriz", "Qwerty", "AmazingDeGriz");
+        User userQwerty = saveUser(session, "Qwerty", "Qwerty");
+        User userOlfourd = saveUser(session, "Olfourd", "Qwerty");
+        User userDeGriz = saveUser(session, "DeGriz", "Qwerty");
 
         Hero alistar = saveHero(session, "Alistar", HeroRole.TANK);
         HeroAbility heroAbility = saveAbility(session, "Triumphant Roar", KeyAbility.PASSIVE, alistar);
@@ -71,8 +71,8 @@ public final class TestDataImporte {
         return news;
     }
 
-    private User saveUser(Session session, String login, String password, String nickName) {
-        User user = new User(login, password, nickName);
+    private User saveUser(Session session, String login, String password) {
+        User user = new User(login, password);
         List<RoleOfUser> roles = Arrays.asList(
                 new RoleOfUser(UserRole.USER),
                 new RoleOfUser(UserRole.ADMIN));

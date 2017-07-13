@@ -16,10 +16,9 @@ import java.util.List;
 @ToString(callSuper = true, exclude = {"roleOfUser", "messages", "createdTopics"})
 public class User extends BaseEntity {
 
-    public User(String name, String password, String nickName) {
+    public User(String name, String password) {
         this.name = name;
         this.password = password;
-        this.nickName = nickName;
     }
 
     @Column(name = "login")
@@ -36,11 +35,6 @@ public class User extends BaseEntity {
     @Getter
     @Setter
     private String firstName;
-
-    @Column(name = "nick_name")
-    @Getter
-    @Setter
-    private String nickName;
 
     @Column(name = "mail")
     @Getter

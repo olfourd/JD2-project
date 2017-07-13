@@ -53,7 +53,7 @@
 
     <!-- Sidebar -->
     <aside class="col-md-4 sidebar sidebar-right">
-        <a  class="btn btn-danger top" href="/news/create">Create news</a>
+        <a class="btn btn-danger top" href="/news/create">Create news</a>
     </aside>
     <!-- /Sidebar -->
 
@@ -68,59 +68,64 @@
         <!-- /Article -->
     </div>
 
-
-</div>    <!-- /container -->
-
-
-<footer id="footer" class="top-space">
-
-    <div class="footer1">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-md-3 widget">
-                    <h3 class="widget-title">Contact</h3>
-                    <div class="widget-body">
-                        <p><a href="mailto:#">olfourd@gmail.com</a><br></p>
-                    </div>
-                </div>
-            </div> <!-- /row of widgets -->
+    <div class="pagination">
+        <div class="paginator">
+            <th:block th:each="i : ${#numbers.sequence(1, pages)}">
+                <a th:text="${i}" th:href="@{/news(page=${i})}">number of page</a>
+            </th:block>
         </div>
-    </div>
+    </div>    <!-- /container -->
 
-    <div class="footer2">
-        <div class="container">
-            <div class="row">
 
-                <div class="col-md-6 widget">
-                    <div class="widget-body">
-                        <p class="simplenav">
-                            <a href="/">Home</a> |
-                            <a href="/news">News</a> |
-                            <a href="/forum">Forum</a> |
-                            <a href="/user">User</a> |
-                        </p>
+    <footer id="footer" class="top-space">
+
+        <div class="footer1">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-3 widget">
+                        <h3 class="widget-title">Contact</h3>
+                        <div class="widget-body">
+                            <p><a href="mailto:#">olfourd@gmail.com</a><br></p>
+                        </div>
                     </div>
-                </div>
-
-                <div class="col-md-6 widget">
-                    <div class="widget-body">
-                        <p class="text-right">
-                            2017, Olfourd.
-                        </p>
-                    </div>
-                </div>
-
-            </div> <!-- /row of widgets -->
+                </div> <!-- /row of widgets -->
+            </div>
         </div>
-    </div>
 
-</footer>
+        <div class="footer2">
+            <div class="container">
+                <div class="row">
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-<script src="/resources/js/headroom.min.js"></script>
-<script src="/resources/js/jQuery.headroom.min.js"></script>
-<script src="/resources/js/template.js"></script>
+                    <div class="col-md-6 widget">
+                        <div class="widget-body">
+                            <p class="simplenav">
+                                <a href="/">Home</a> |
+                                <a href="/news">News</a> |
+                                <a href="/forum">Forum</a> |
+                                <a href="/user">User</a> |
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 widget">
+                        <div class="widget-body">
+                            <p class="text-right">
+                                2017, Olfourd.
+                            </p>
+                        </div>
+                    </div>
+
+                </div> <!-- /row of widgets -->
+            </div>
+        </div>
+
+    </footer>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="/resources/js/headroom.min.js"></script>
+    <script src="/resources/js/jQuery.headroom.min.js"></script>
+    <script src="/resources/js/template.js"></script>
 </body>
 </html>

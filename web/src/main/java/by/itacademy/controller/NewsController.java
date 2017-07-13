@@ -28,10 +28,10 @@ public class NewsController {
         this.userService = userService;
     }
 
-    @ModelAttribute("allNews")
-    public List<News> allNews() {
-        return newsService.getAll();
-    }
+//    @ModelAttribute("allNews")
+//    public List<News> allNews() {
+//        return newsService.getAll();
+//    }
 
     @ModelAttribute("comment")
     public NewsComment getComment() {
@@ -43,9 +43,15 @@ public class NewsController {
         return new News();
     }
 
-
+//TODO: вынести в сервис логику getCountOfPage()
     @GetMapping("/news")
-    public String getAllNewsPage() {
+    public String getAllNewsPage(Model model) {
+        int size = newsService.getAll().size();
+        int pages = size / 3;
+        if (size % 3 > 0) {
+            pages++;
+        }
+        model.addAttribute("pages", pages);
         return "news";
     }
 
@@ -100,5 +106,20 @@ public class NewsController {
                 .getName()));
         newsService.update(news);
         return "redirect:/news/simple?id=" + news.getId();
+    }
+
+
+//    TODO: логику вынести в слой сервис
+    @GetMapping(path = "/news", params = "page")
+    public String genNewsWithPage(@RequestParam("page") int page,
+                                  Model model){
+        model.addAttribute("allNews", newsService.getNewsFromPage(page));
+        int size = newsService.getAll().size();
+        int pages = size / 3;
+        if (size % 3 > 0) {
+            pages++;
+        }
+        model.addAttribute("pages", pages);
+        return "news";
     }
 }

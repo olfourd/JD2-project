@@ -19,20 +19,7 @@ public class HeroServiceImpl extends BaseServiceImpl<Hero, HeroDaoImpl> implemen
         return getRepository().getAllAbilities(primaryKey);
     }
 
-    @Override
-    public Hero changeName(Hero hero, String name) {
-        return getRepository().changeName(hero, name);
-    }
 
-    @Override
-    public Hero changeRole(Hero hero, HeroRole heroRole) {
-        return getRepository().changeRole(hero, heroRole);
-    }
-
-    @Override
-    public Hero changePicture(Hero hero, String srcPicture) {
-        return getRepository().changePicture(hero, srcPicture);
-    }
 
     @Override
     public Hero getByName(String name) {

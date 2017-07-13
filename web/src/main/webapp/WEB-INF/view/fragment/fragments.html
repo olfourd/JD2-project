@@ -1,0 +1,105 @@
+<head xmlns:th="http://www.thymeleaf.org">
+    <div th:fragment="import">
+        <title>Join League of Legends</title>
+        <link rel="shortcut icon" href="/resources/images/header/gt_favicon.png">
+        <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+        <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/resources/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/resources/css/bootstrap-theme.css" media="screen" >
+        <link rel="stylesheet" href="/resources/css/main.css">
+        <script src="/resources/js/html5shiv.js"></script>
+        <script src="/resources/js/respond.min.js"></script>
+    </div>
+
+    <div th:fragment="header">
+        <!-- Header -->
+        <header id="head">
+            <div class="container">
+                <div class="row">
+                    <h1 class="lead">JOIN OUR COMMUNITY</h1>
+                    <p><a class="btn btn-default btn-lg" role="button" href="/">MORE INFO</a>
+                        <a class="btn btn-action btn-lg" role="button"
+                           href="https://signup.eune.leagueoflegends.com/en/signup/redownload">DOWNLOAD NOW</a>
+                    </p>
+                </div>
+            </div>
+        </header>
+        <!-- /Header -->
+    </div>
+
+    <div th:fragment="navbar">
+        <!-- Fixed navbar -->
+        <div class="navbar navbar-inverse navbar-fixed-top headroom">
+            <div class="container">
+                <div class="navbar-header">
+                    <!-- Button for smallest screens -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/"><img src="/resources/images/header/logo.png"
+                                                          alt="Progressus HTML5 template"></a>
+                </div>
+
+
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav pull-right">
+                        <li class="active"><a href="/news">News</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">GemeInfo<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li class="active"><a href="/heroes">Heroes</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/forum">Forum</a></li>
+                        <li><a href="/user">User</a></li>
+                        <li><a class="btn" href="signin">SIGN IN / SIGN UP</a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
+        <!-- /.navbar -->
+    </div>
+
+    <div th:fragment="footer">
+        <div class="footer1">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-3 widget">
+                        <h3 class="widget-title">Contact</h3>
+                        <div class="widget-body">
+                            <p><a href="mailto:#">olfourd@gmail.com</a><br></p>
+                        </div>
+                    </div>
+                </div> <!-- /row of widgets -->
+            </div>
+        </div>
+
+        <div class="footer2">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-md-6 widget">
+                        <div class="widget-body">
+                            <p class="simplenav">
+                                <a href="/">Home</a> |
+                                <a href="/news">News</a> |
+                                <a href="/forum">Forum</a> |
+                                <a href="/user">User</a> |
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 widget">
+                        <div class="widget-body">
+                            <p class="text-right">
+                                2017, Olfourd.
+                            </p>
+                        </div>
+                    </div>
+
+                </div> <!-- /row of widgets -->
+            </div>
+        </div>
+    </div>
+</head>

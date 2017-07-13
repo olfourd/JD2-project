@@ -11,11 +11,5 @@ public interface HeroService extends BaseService<Hero> {
 
     List<HeroAbility> getAllAbilities(Long primaryKey);
 
-    Hero changeName(Hero hero, String name);
-
-    Hero changeRole(Hero hero, HeroRole heroRole);
-
-    Hero changePicture(Hero hero, String srcPicture);
-
     Hero getByName(String name);
 }

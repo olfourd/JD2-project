@@ -16,4 +16,6 @@ public interface NewsDao extends BaseDao<News> {
     List<NewsComment> getCommentsByNewsId(Long primaryKey);
 
     News getByName(String name);
+
+    List<News> getNewsFromPage(int page);
 }
